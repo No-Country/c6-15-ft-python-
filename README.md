@@ -10,13 +10,13 @@ Como cuidador, me interesa conocer las características de la mascota (salud, co
 
 #### Frontend:
 
-- [Html](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png)
-- [Css](https://es.wikipedia.org/wiki/Archivo:CSS3_logo_and_wordmark.svg)
-- [Bootstrap](https://es.wikipedia.org/wiki/Archivo:Bootstrap_logo.svg)
+![Html](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png)
+![Css](https://es.wikipedia.org/wiki/Archivo:CSS3_logo_and_wordmark.svg)
+![Bootstrap](https://es.wikipedia.org/wiki/Archivo:Bootstrap_logo.svg)
 
 #### Backend:
-- [Django](https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg)
-- [PostgreSQL](https://kinsta.com/wp-content/uploads/2022/02/postgres-logo.png)
+![Django](https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg)
+![PostgreSQL](https://kinsta.com/wp-content/uploads/2022/02/postgres-logo.png)
 
 ## Colaboradores:
 - Jose Morales (Full-stack)
