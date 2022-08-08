@@ -31,7 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
         'homepage',
+=======
+    'homepage',
+>>>>>>> d2f46565f73aa9b8d8890649a17c2fe19b557095
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'doggy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['*'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,10 +82,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'doggy',
+<<<<<<< HEAD
         'USER': 'daniel2022',
         'PASSWORD': 'daniel2022',
         'HOST': 'localhost',
         'PORT': '',
+=======
+        'USER': 'renesilva',
+        'PASSWORD': 'renesilva',
+        'HOST': 'localhost',
+        'PORT': '',
+         
+>>>>>>> d2f46565f73aa9b8d8890649a17c2fe19b557095
     }
 }
 
