@@ -31,11 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-        'homepage',
-=======
     'homepage',
->>>>>>> d2f46565f73aa9b8d8890649a17c2fe19b557095
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,7 +55,7 @@ ROOT_URLCONF = 'doggy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['*'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,18 +78,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'doggy',
-<<<<<<< HEAD
         'USER': 'daniel2022',
         'PASSWORD': 'daniel2022',
         'HOST': 'localhost',
         'PORT': '',
-=======
         'USER': 'renesilva',
         'PASSWORD': 'renesilva',
+        'USER': 'josemorales',
+        'PASSWORD': 'jose1234',
         'HOST': 'localhost',
         'PORT': '',
-         
->>>>>>> d2f46565f73aa9b8d8890649a17c2fe19b557095
     }
 }
 
@@ -132,7 +126,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
