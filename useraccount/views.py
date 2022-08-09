@@ -1,11 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
-
+from django.contrib import  messages
+from .forms import RegisterForm
 
 # Create your views here.
 
 def login_doggy(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -14,7 +17,26 @@ def login_doggy(request):
         
         if user:
             login(request,user)
+            messages.success(request,'Bienvenido de nuevo {}'.format(user.username))
             return redirect('home')
+
+        else:
+            messages.success(request,'Usuario o contraseña no validos')
+        
     return render(request,'login.html', {})
 
-    
+def register(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    form = RegisterForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+
+        user = form.save()
+        if user:
+            login(request,user)
+            messages.success(request,'Cuenta creada exitosamente')
+            return redirect('home')
+
+    return render(request,'register.html',{
+        'form' : form,
+    })
