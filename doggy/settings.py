@@ -77,9 +77,8 @@ WSGI_APPLICATION = 'doggy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'doggy',
-        'USER': 'josemorales',
-        'PASSWORD': 'jose1234',
+        'USER': 'daniel',
+        'PASSWORD': 'daniel2022',
         'HOST': 'localhost',
         'PORT': '',
         
