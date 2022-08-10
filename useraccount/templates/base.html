@@ -11,6 +11,7 @@
 
     
 </head>
+  {% include "messages.html" %}
 <body>
     <div class="container-fluid" >
     </div>
@@ -22,18 +23,35 @@
           </button>
           <div class="collapse navbar-collapse position-absolute end-0" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Convertirse en cuidador</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Ayuda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Registrarme</a>
-              </li>
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Convertirse en cuidador</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Ayuda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Salir </a>
+                </li>
+              {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Ayuda</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="{% url 'register' %}">Registrarme</a>
+                </li>
+             
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Comenzar</a>
+                </li>
+
+                {% endif %}
             </ul>
           </div>
         </div>
