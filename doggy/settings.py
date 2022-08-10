@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,15 +81,7 @@ WSGI_APPLICATION = 'doggy.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'doggy',
-        'USER': 'mateo2022',
-        'PASSWORD': 'mateo2022',
-        'HOST': 'localhost',
-        'PORT': '',
-        
-}
+    "default": env.db("DATABASE_URL", default="postgres://doggy"),  
 }
 
 # Password validation
