@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate
-from django.contrib.auth import login
+from django.contrib.auth import authenticate,logout,login
 from django.contrib import  messages
 from .forms import RegisterForm
 
@@ -40,3 +39,10 @@ def register(request):
     return render(request,'register.html',{
         'form' : form,
     })
+
+def logout_doggy(request):
+    if not request.user.is_authenticated:
+        return redirect('home')
+    logout(request)
+    messages.success(request,'Salio de Secion exitosamente')
+    return redirect('home')
