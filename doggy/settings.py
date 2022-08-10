@@ -12,28 +12,55 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import environ
+#import environ
+from dotenv import load_dotenv
 
 
-
-
-env = environ.Env()
-environ.Env.read_env()
-
-
-DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres://doggy"),  
-}
+#load dotenv
+load_dotenv()
+env_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path=env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        
+}
+}
+
+
+#env = environ.Env()
+#environ.Env.read_env()
+
+#DATABASES = {
+#    "default": env.db("DATABASE_URL", default="postgres://doggy"),  
+#}
+#DATABASES = {
+#"default": {
+#‘ENGINE’: ‘django.db.backends.postgresql_psycopg2’,
+#‘NAME’: env(‘DATABASE_NAME’),
+#‘USER’: env(‘DATABASE_USER’),
+#‘PASSWORD’: env(‘DATABASE_PASS’),
+#}}
+## Build paths inside the project like this: BASE_DIR / 'subdir'.
+#BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0u^763oms^o_ygnz%p#+5=#-&y$^&ps8yda0h#241i%s81qk7t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
