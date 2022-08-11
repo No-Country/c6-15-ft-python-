@@ -1,5 +1,5 @@
 {% for message in messages %}
-  <div class="alert {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}">
+  <div class="mt-5 alert {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}">
     {{ message }}
     <button type="button" class="close" data-bs-dismiss="alert">X</button>
   </div>
