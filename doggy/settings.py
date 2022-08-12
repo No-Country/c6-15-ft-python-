@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+import django_heroku
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -29,6 +30,7 @@ SECRET_KEY = 'django-insecure-0u^763oms^o_ygnz%p#+5=#-&y$^&ps8yda0h#241i%s81qk7t
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = doggi-test.herokuapp.com
 
 
 # Application definition
@@ -79,14 +81,26 @@ WSGI_APPLICATION = 'doggy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': os.getenv('DB_NAME'),
+#        'USER': os.getenv('DB_USER'),
+#        'PASSWORD': os.getenv('DB_PASSWORD'),
+#        'HOST': os.getenv('DB_HOST'),
+#        'PORT': os.getenv('DB_PORT'),
+        
+#}
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'NAME': 'dfaqures5rq13t',
+        'USER': 'ewezlacjrmbecb',
+        'PASSWORD': '95007398b39a408a71efbd8265c7dc955600268206b5b1045ff8a2c686c4f748',
+        'HOST': 'ec2-54-152-28-9.compute-1.amazonaws.com',
+        'PORT': '5432',
         
 }
 }
@@ -125,7 +139,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+
+STATIC_ROOT = OS.PATH.JOIN(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+django_heroku.settings(locals())
 
 
 # Default primary key field type
