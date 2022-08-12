@@ -1,1 +1,1 @@
-web: gunicorn doggy.wsgi
+web: gunicorn doggy.wsgi --log-file -

@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-0u^763oms^o_ygnz%p#+5=#-&y$^&ps8yda0h#241i%s81qk7t
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-ALLOWED_HOSTS = doggi-test.herokuapp.com
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["doggy-test.herokuapp.com"]
 
 
 # Application definition
@@ -141,7 +141,7 @@ USE_TZ = True
 
 #STATIC_URL = '/static/'
 
-STATIC_ROOT = OS.PATH.JOIN(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 django_heroku.settings(locals())
 
