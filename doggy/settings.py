@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-0u^763oms^o_ygnz%p#+5=#-&y$^&ps8yda0h#241i%s81qk7t
 DEBUG = True
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["doggy-test.herokuapp.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition

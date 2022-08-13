@@ -1,1 +1,1 @@
-web: gunicorn doggy.wsgi --log-file -
+web: python manage.py runserver --log-file -
