@@ -1,1 +1,2 @@
-web: python manage.py runserver --log-file -
+release: python manage.py migrate
+web: gunicorn doggy.wsgi --log-file -
