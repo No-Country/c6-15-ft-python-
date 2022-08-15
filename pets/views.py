@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
-def pet(request):
+def pets(request):
     return render(request, 'homepage/index.html', )
