@@ -1,1 +1,1 @@
-web: gunicorn c6-15-FT-PYTHON- doggy.wsgi
+web: gunicorn doggy.wsgi --log-file -
