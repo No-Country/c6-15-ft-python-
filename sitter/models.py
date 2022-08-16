@@ -4,7 +4,7 @@ from homepage.models import User
 # Create your models here.
 class Sitter(models.Model):
     price = models.IntegerField()
-    descripcion = models.charField()
+    descripcion = models.CharField(max_length=255)
     status = models.BooleanField(default=True)
     picture_site = models.ImageField(upload_to='sitter/img/') 
     #user relationship
