@@ -18,15 +18,19 @@ from django.urls import path, include
 from homepage import urls
 from useraccount import urls
 from sitter import urls
-from pets import urls
 
+=======
+from pets import urls
+>>>>>>> 2ff247a7b6482cbe7ecb74143703612e06c3cd6a
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
     path('pets/', include('pets.urls')),
     path('useraccount/', include('useraccount.urls')),
-
+<<<<<<< HEAD
     path('sitter/', include('sitter.urls')),
 
+=======
+>>>>>>> 2ff247a7b6482cbe7ecb74143703612e06c3cd6a
 ]
