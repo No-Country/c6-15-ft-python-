@@ -11,12 +11,9 @@ class Sitter(models.Model):
     #user relationship
     sitter_id = models.ForeignKey(User, on_delete=models.CASCADE)
     
-
-
     def __str__(self):
         return self.sitter_id.username
 
-    
     class meta:
         verbose_name = 'Sitter'
         verbose_name_plural = 'Sitters'
