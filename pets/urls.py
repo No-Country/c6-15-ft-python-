@@ -1,4 +1,3 @@
-from argparse import Namespace
 from django.urls import path, include
 from . import views
 
@@ -12,4 +11,5 @@ urlpatterns = [
     path('registro_pett/<str:user>/',views.createPet, name='register'),
 
 ]
+
 

@@ -1,5 +1,5 @@
-from urllib import request
 from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import FormularioPets
 from .models import Pet
 from django.contrib.auth.models import User
@@ -12,13 +12,7 @@ def pets(request):
 def pets_register(request):
     return render(request, 'pets/pet.html')
 
-# class CreatePet(CreateView):
 
-#     model = Pet
-#     form_class = FormularioPets
-#     # template_name = 'pets/pet.html'
-#     success_message = 'Successfully created post'
-#     success_url = reverse_lazy('homepage/index.html')
 
 def createPet(request,user):
     
@@ -46,5 +40,4 @@ def createPet(request,user):
 
 
 
-       
-        
+
