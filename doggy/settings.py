@@ -36,11 +36,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'useraccount',
     'homepage',
-<<<<<<< HEAD
     'sitter',
-=======
     'pets',
->>>>>>> 2ff247a7b6482cbe7ecb74143703612e06c3cd6a
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,6 +79,7 @@ WSGI_APPLICATION = 'doggy.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
