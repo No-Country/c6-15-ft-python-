@@ -1,4 +1,3 @@
-from telnetlib import STATUS
 from django import forms
 from sitter.models import Sitter
 
