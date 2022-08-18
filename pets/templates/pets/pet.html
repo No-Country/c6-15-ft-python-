@@ -4,10 +4,16 @@
 <div>
     <form action="" method="post" class="container">
     {% csrf_token %}
-    <div>{{form.as_p}}</div>
+    
+        <div>
+            {{form.as_p}}
+            {% comment %} {{form.petowner_id.user.username} {% endcomment %}
+        </div>
+    
     <div class=''>
         <button type="submit" class='btn btn-success '>Crear</button>
         <a class='btn btn-danger ' href={% url 'home' %}>Cancelar</a>
     </form>
+   
 </div>    
 {% endblock  %}
