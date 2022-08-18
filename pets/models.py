@@ -10,7 +10,7 @@ class Pet(models.Model):
     accesories = models.CharField(max_length=255)
     #user relationships
 
-    petowner_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self):
