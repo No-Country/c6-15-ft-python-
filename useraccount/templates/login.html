@@ -7,7 +7,7 @@
 
 <img class="img-fluid h-100 w-100" src="{% static 'img/fondo.jpg' %}" alt="" style="position: relative;">
   <div class="d-flex text-start align-items-start justify-content-center pt-5 m-5">
-    <form method="post" class=" bg-light row p-5 col-md-3 border boder-primary shadow-lg" style="position: absolute; margin-top: -500px">
+    <form method="post" class=" bg-light row p-5 col-md-3 border boder-primary rounded shadow-lg" style="position: absolute; margin-top: -500px">
   {% csrf_token %}
   <div class="form-group">
     <label for="username">Username</label>
@@ -19,7 +19,7 @@
   <input type="password" name="password" class="form-control">
 
   </div>
-  <button type="submit"  class="btn btn-primary">Enviar</button>
+  <button type="submit"  class="btn btn-primary mt-2">Enviar</button>
 </form>
   </div>
 {% endblock %}
