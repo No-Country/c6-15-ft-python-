@@ -12,7 +12,7 @@ class Sitter(models.Model):
     price = models.IntegerField()
     descripcion = models.CharField(max_length=255)
     status = models.IntegerField(null=False, blank=False, choices=status_pub , default=1)
-    picture_site = models.ImageField(upload_to='sitter/static/img/', blank=True)
+    picture_site = models.ImageField(upload_to="sitters/", null=True, blank=True)
     #user relationship
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     
