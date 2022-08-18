@@ -11,6 +11,7 @@ def create_sitter(request):
         context = {
             'form': form,
         }
+        print(form)
         return render(request, 'sitter.html', context)
     else:
         return render(request, 'sitter.html')
