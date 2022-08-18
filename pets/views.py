@@ -20,15 +20,16 @@ def createPet(request,user):
         form = FormularioPets(request.POST)
         if form.is_valid():
             formulario = form.save(commit=False)
-            user = User.objects.get(username = request.user.username)
-            formulario.petowner_id = user
+            user = User.objects.get(username = request.user.id)
+            formulario.petowner = user
             formulario.save()
             return redirect('home')
     else:
         form = FormularioPets(request.POST)
     return render(request, 'pets/pet.html', {'form':form})                
 
-
+def update_pet(request,user):
+  pass 
 
     
 

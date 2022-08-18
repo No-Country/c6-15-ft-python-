@@ -1,19 +1,60 @@
 {% extends "homepage/base.html" %}
 
 {% block content %}
-<div>
-    <form action="" method="post" class="container">
-    {% csrf_token %}
+<div style="height: 35%; position: relative; margin: 100px;">
+  <div class="container-sm bg-primary align-middle position-relative p-3 m-5 w-25 rounded-4" style="--bs-bg-opacity: .5;" >
+    <div class="search_title">
+      <p>Encuentra al cuidador perfecto<br/></p>
+    </div>
+    <div class="">
+      <form action="" method="post" class="">
+      {% csrf_token %}
     
-        <div>
-            {{form.as_p}}
-            {% comment %} {{form.petowner_id.user.username} {% endcomment %}
-        </div>
+          <div>
+              {{form.as_p}}
+              {% comment %} {{form.petowner_id.user.username} {% endcomment %}
+          </div>
+      
+      <div class=''>
+          <button type="submit" class='btn btn-success '>Crear</button>
+          <a class='btn btn-danger ' href={% url 'home' %}>Cancelar</a>
+      </form>
     
-    <div class=''>
-        <button type="submit" class='btn btn-success '>Crear</button>
-        <a class='btn btn-danger ' href={% url 'home' %}>Cancelar</a>
-    </form>
-   
-</div>    
+  </div>    
 {% endblock  %}
+
+
+    
+<!--
+    
+      <form method="post" class="">
+        {% csrf_token %}
+          <div class="form-group">
+            <label for="username">name</label>
+            <input type="text" name="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" name="age" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="size">Size</label>
+              <input type="number" name="size" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="condition">Condition</label>
+            <input type="text" name="condition" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="accessories">Accessories</label>
+            <input type="text" name="accessories" class="form-control" class="form-control">
+          </div>
+          <br>
+          <button type="submit"  class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
+-->        
