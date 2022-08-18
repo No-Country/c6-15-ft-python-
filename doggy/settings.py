@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'useraccount',
     'homepage',
+    'sitter',
     'pets',
     'django.contrib.admin',
     'django.contrib.auth',

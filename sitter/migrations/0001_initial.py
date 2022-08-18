@@ -15,15 +15,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Pet',
+            name='Sitter',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
-                ('age', models.IntegerField()),
-                ('size', models.CharField(max_length=255)),
-                ('condition', models.CharField(max_length=255)),
-                ('accesories', models.CharField(max_length=255)),
-                ('petowner_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('price', models.IntegerField()),
+                ('descripcion', models.CharField(max_length=255)),
+                ('status', models.BooleanField(default=True)),
+                ('picture_site', models.ImageField(upload_to='sitter/img/')),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

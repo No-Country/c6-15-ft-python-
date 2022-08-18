@@ -6,19 +6,22 @@
   <img class="img-fluid h-100 w-100" src="{% static 'img/fondo.jpg' %}" alt="">
 
 
- 
-  <div class="container" style="width: 80%;">
+    <!--========================================================== -->
+		<!-- ¿Cómo funciona? Y ¿ Por Qué Doggy?-->
+    <!--========================================================== -->
 
-<div class="row mt-4 p-2">
-	<h3>¿Cómo funciona Doggy?</h3>
-</div>
+  <div class="container h-100" style="width: 80%;">
 
-<div class="row mt-3">
-<div class="col-1">
-  <img class="p-2" src="{% static 'img/numero_1.png' %}">
-</div>
+    <div class="row mt-4 p-2">
+	    <h3>¿Cómo funciona Doggy?</h3>
+    </div>
 
-<div class="col-3">
+    <div class="row mt-3">
+      <div class="col-md-1 col-sm-12">
+       <img class="p-2" src="{% static 'img/numero_1.png' %}">
+      </div>
+
+<div class="col-md-3 col-sm-12">
   <div class="row p-2">
 	<h5>Buscá</h5>
       </div>
@@ -26,12 +29,12 @@
 	  <p>Busca y contacta con cuidadores de confianza y con experiencia cerca de tí.</p>
       </div>
 </div>
-<div class="col-1">
+<div class="col-md-1 col-sm-12">
   <img class="p-2" src="{% static 'img/numero_2.png' %}">
 
 </div>
 
-<div class="col-3">
+<div class="col-md-3 col-sm-12">
   <div class="row p-2">
 	<h5>Reservá</h5>
     </div>
@@ -40,11 +43,11 @@
       </div>
 </div>
 
-<div class="col-1">
+<div class="col-md-1 col-sm-12">
 	<img class="p-2" src="{% static 'img/numero_3.png' %}">
 </div>
 
-<div class="col-3">
+<div class="col-lg-3 col-sm-12">
 
   <div class="row">
 	  <h5>Relajate</h5>
@@ -67,11 +70,11 @@
 </div>
 
 <div class="row mt-3">
-<div class="col-1">
+<div class="col-md-1 col-sm-12">
   <img class="p-2" src="{% static 'img/huella.png' %}">
 </div>
 
-<div class="col-3">
+<div class="col-md-3 col-sm-12">
   <div class="row p-2">
 	<h5>Beneficios para tu perro</h5>
       </div>
@@ -84,12 +87,12 @@
 	</ul>	
       </div>
 </div>
-<div class="col-1">
+<div class="col-md-1 col-sm-12">
   <img class="p-2" src="{% static 'img/beneficio.png' %}">
 
 </div>
 
-<div class="col-3">
+<div class="col-md-3 col-sm-12">
   <div class="row p-2">
 	<h5>Beneficios para vos</h5>
     </div>
@@ -103,12 +106,12 @@
       </div>
 </div>
 
-<div class="col-1">
+<div class="col-md-1 col-sm-12">
   <img class="p-2" src="{% static 'img/tranquilidad.png' %}">
   
 </div>
 
-<div class="col-3">
+<div class="col-md-3 col-sm-12">
 
   <div class="row">
 	  <h5>Tranquilidad</h5>
@@ -122,11 +125,96 @@
 	</ul>	
     </div>
 </div>
-
+</div>
 </div>
 
+    <!--========================================================== -->
+		<!-- Comentarios de usuarios -->
+    <!--========================================================== -->
+  <div class="container-fluid bg-dark p-5 min-vh-100">
+    <div class="container w-sm-100 w-lg-50 p-5 my-5">
+      <h5 class="font-weight-bold text-light p-4">Tomas Bravo de María Laura Montez</h5>
+      <p class="text-light text-left">“Mejor imposible! Era la primera vez que utilizábamos la aplicación y a una cuidadora, María Laura es muy atenta en todo momento nos tuvo informados, con fotos y vídeos a la pequeña se la vio muy bien antendida. Estamos muy contentos con ella. Repetimos seguro.”</p> 
+    </div>
+</div>
 </div>
 
- 
+    <!--========================================================== -->
+		<!-- Preguntas Frecuentes -->
+    <!--========================================================== -->
 
-{% endblock %}
+
+
+  <div class="container p-4 my-5 min-vh-100" style="width: 60%;">
+
+<div class="mt-4 p-2 text-center">
+  <h3 class="font-weight-bold">Preguntas Frecuentes (FAQ)</h3>
+</div>
+<ul>  <div class="p-2">
+    <li><h5 class="font-weight-bold">¿Doggy es adecuado para mi perro?</h5> </li>	
+      </div>
+      <div>
+	  <p class="text-justify">Creemos que todos los perros deberían ser cuidados por cuidadores cariñosos que les proporcionen atención personalizada, muchos paseos, tiempo de juego y mimos
+	    <span id="points1">...</span>
+  
+	    <span id="moreText1" style="display: none;"> para proporcionarles el bienestar necesario. Para nosotros su felicidad es lo primero y promovemos constantemente dinámicas en ese mismo sentido. En el caso, por ejemplo de que un cuidador presente diversas puntuaciones negativas nuestroequipo se pondrá en contacto con él. </span>
+	  <a onclick="toggleText1()" id="textButton1" class="link-dark read-more"> Leer más</a>
+	</p>
+      </div>
+
+  <div class="p-2">
+	<li><h5 class="font-weight-bold">¿Son seguros los cuidadores de Doggy?</h5></li>	
+      </div>
+      <div>
+	<p class="text-justify">Nos comprometemos a proporcionar un entorno seguro para la comunidad Doggy. Todos los cuidadores pasan por un estricto proceso de selección con el equipo de confianza
+	    <span id="points2">...</span>
+  
+	    <span id="moreText2" style="display: none;"> de nuestra empresa. Para dicha evaluación se deben cumplir diversos criterios que aseguran que cada uno de los cuidadores dispongan de la posibilidad de generar un entorno seguro para el perro que vayan a cuidar. </span>
+	  <a onclick="toggleText2()" id="textButton2" class="link-dark read-more"> Leer más</a>
+	</p>
+      </div>
+
+
+  <div class="p-2">
+	<li><h5 class="font-weight-bold">¿Puedo conocer al cuidador antes de una reserva?</h5></li>	
+      </div>
+      <div class="">
+	<p class=""text-justify>¡Por supuesto! Siempre recomendamos organizar un encuentro antes de la reserva. Esta es una oportunidad para ver el entorno de la casa y conocer a las mascotas que viven allí
+	    <span id="points3">...</span>
+  
+	    <span id="moreText3" style="display: none;"> tanto de manera virtual como presencialmente. En Doggy, recomendamos siempre, en la medida de lo posible, una primera aproximación para comprobar que el perro que vaya a ser hospedado esté cómodo y en el caso de que hubieran otros perros o mascotas su relación con la mascota a hospedar sea la adecuada.  </span>
+	  <a onclick="toggleText3()" id="textButton3" class="link-dark read-more"> Leer más</a>
+	</p>
+
+      </div>
+
+
+  <div class="p-2">
+	<li><h5 class="font-weight-bold">¿Cómo puedo pagar una reserva?</h5></li>	
+      </div>
+      <div class="">
+	  <p class=""text-justify>Una vez que hayas encontrado al cuidador perfecto para tu perro, Doggy hará que el pago sea sencillo. Aceptamos las principales tarjetas de crédito / débito
+	    <span id="points4">...</span>
+  
+	    <span id="moreText4" style="display: none;"> para realizar el pago. En ese ello tendrán que contactor con nuestro equipo de Doggy por medio de esta misma web Aceptamos diversas formas de pago y por su propia seguridad recomendamos que la única manera de pago sea a través de esta plataforma. Si la reserva no se ha hecho por nuestra plataforma, no nos podremos responsabilizar de ella y no podremos resolver cualquier inconveniente o reclamo. </span>
+	  <a onclick="toggleText4()" id="textButton5" class="link-dark read-more"> Leer más</a>
+	</p>
+      </div>
+
+  <div class="p-2">
+	<li><h5 class="font-weight-bold">¿Puedo cancelar una reserva?</h5></li>	
+      </div>
+      <div class="">
+	<p class="text-justify">¡Sí, por supuesto! Entendemos que los planes pueden cambiar, por eso todas las reservas de Doggy tienen un reembolso del 100% en cualquier momento hasta 24 horas antes
+	    <span id="points5">...</span>
+  
+	    <span id="moreText5" style="display: none;"> de el Check In. Para ello tendrán que contactor con nuestro equipo de Doggy por medio de esta misma plataforma por la sección de contacto o por el teéfono: 2323 3294 1233. Si el plazo de cancelación está cerca de cumplirse les recomendamos contactar a través del teléfono para evitar la demora del contacto vía texto. Nuestro horario de atención es de lunes a viernes de 9h a 18h. En caso de querer cancelar la reserva fuera de horario les recomendamos utilizar el mail al que responderemos a la brevedad. </span>
+	  <a onclick="toggleText5()" id="textButton5" class="link-dark read-more"> Leer más</a>
+	</p>
+      </div>
+</ul>
+  
+  
+<p><a href="#">Lee más Preguntas Frecuentes (FAQ) en nuestro Centro de ayuda</a></p>
+  </div>
+   {% endblock %}

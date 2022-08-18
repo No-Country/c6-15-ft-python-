@@ -1,45 +1,49 @@
+{% load static %}
    <footer>
           <div class="container-fluid text-white p-5" style="background-color:#7591F0" >
+            <div class="mx-auto">
             <!-- Doggy  menu-->
             <div class="row">
               <div class="col-md-4">
                 <div class="mw-100">
-                <h5>Doggy</h5>
-                <ul>
-                  <li><a style="text-decoration:none; color: aliceblue;" href="#">Inicio</a></li>
-                  <li><a style="text-decoration:none; color: aliceblue;" href="#">Convertirse en cuidador</a></li>
-                  <li><a style="text-decoration:none; color: aliceblue;" href="#">Ayuda</a></li>
-                  <li><a style="text-decoration:none; color: aliceblue;" href="#">Registrarme</a></li>
+                  <div class="text-left py-2">
+                    <h5>Doggy</h5>
+                  </div>
+                <ul style="list-style: none; margin:0; padding: 0;">
+                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Inicio</a></li>
+                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Convertirse en cuidador</a></li>
+                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Ayuda</a></li>
+                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Registrarme</a></li>
                 </ul>
                 </div>
               </div>
               <div class="col-md-4 ">
-                <div class="text-center">
+                <div class="text-left py-2">
                   <h5>Terminos y Condiciones</h5>
-                  <h6>Politicas de privacidad</h6>
+                  <h6 class="py-2">Politicas de privacidad</h6>
                 </div>
                 <div class="container-fluid ">
                   <!-- redes sociales -->
                   <div class="row">
-                    <div class="col-md-4">
-                      <a href="#"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt=""></a>
+                    <div class="col-4">
+                      <a href="#"><img src="{% static 'img/icon-instagram.png' %}"> </a>
+                   </div>
+                    <div class="col-4">
+                      <a href="#"><img src="{% static 'img/icon-facebook.png' %}"> </a>
                     </div>
-                    <div class="col-md-4">
-                      <a href="#"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt=""></a>
-                    </div>
-                    <div class="col-md-4">
-                      <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt=""></a>
+                    <div class="col-4">
+                      <a href="#"><img src="{% static 'img/icon-twitter.png' %}"> </a>
                     </div>
                 </div>
               </div>
           </div>
-          <div class="col-md-4 text-center">
+          <div class="col-md-4 text-left py-2">
             <h5>Descarga nuestra aplicacion</h5>
-            <a href="#"><img src="https://img.icons8.com/color/48/000000/google-play.png" alt=""></a>
-           <!-- icono de apple store -->
-            <a href="#"><img src="https://img.icons8.com/color/48/000000/app-store-ios.png" alt=""></a>
-          </div>
+	    <a href="#"><img style= "max-width: 220px; padding: 5px;" src="{% static 'img/icon-google-play.png' %}"></a>
+	    <a href="#"><img style= "max-width: 200px; padding: 5px;" src="{% static 'img/icon-apple-store.png' %}"></a>
 
+          </div>
+        </div>
            
       </footer>
     
