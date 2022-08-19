@@ -7,7 +7,9 @@ from .forms import RegisterForm
 
 def login_doggy(request):
     if request.user.is_authenticated:
+        messages.error(request,'Ya estas logeado ')
         return redirect('home')
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -20,7 +22,7 @@ def login_doggy(request):
             return redirect('home')
 
         else:
-            messages.success(request,'Usuario o contraseña no validos')
+            messages.error(request,'Usuario o contraseña no validos')
         
     return render(request,'login.html', {})
 

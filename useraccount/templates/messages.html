@@ -1,23 +1,31 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
 {% if messages %}
   {% for message in messages %}
-    {% if message.tags == 'success' %}
+
+      {% if message.tags == "success" %}
         <script>
           Swal.fire({
-            'title' : 'Ok',
-            'text' : '{{ message }}',
-            'icon' : 'success',
+          "title" : "Accion Lograda Correctamente",
+          "text" : "{{message}}",
+          "icon" : "success"
           })
-        </script>
-    {% elif message.tags == 'error' %}
-      <script>
-        Swal.fire({
-          'title' : 'Upsss!',
-          'text' : '{{ message }}',
-          'icon' : 'warning',
-        })
       </script>
-    {% endif %}
+
+      {% endif %}
+      {% if message.tags ==  "error" %}
+
+        <script>
+          Swal.fire({
+          "title" : "Inconveniente",
+          "text" : "{{message}}",
+          "icon" : "warning"
+          })
+      </script>
+      {% endif %}
+
+
   {% endfor %}
+
 {% endif %}
