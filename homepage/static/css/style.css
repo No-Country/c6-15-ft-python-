@@ -1,3 +1,26 @@
+@font-face {
+  font-family: "inter";
+  src: url('../fonts/Inter-Regular.woff');
+  font-family: "inter-bold";
+  src: url('../fonts/Inter-Bold.woff');
+}
+body {
+  font-family: "inter";
+}
+
+.navbar {
+
+  font-family: "inter" !important;
+}
 .read-more {font-weight: bold; 
 	    cursor: pointer; 
 	    text-decoration: none;}
+h1, h2, h3, h4, h5 {
+
+  font-family: "inter-bold";
+}
+.user-comment{
+  border-radius: 50px;
+  width: 100px;
+  position: relative;
+} 
