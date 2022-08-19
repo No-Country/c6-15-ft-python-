@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from homepage import urls
 from useraccount import urls
+from pets import urls
+from sitter import urls
 from django.conf import settings
 from django.conf.urls.static import static
 
