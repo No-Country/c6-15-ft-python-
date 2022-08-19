@@ -10,7 +10,9 @@ from django.views import generic
 
 def login_doggy(request):
     if request.user.is_authenticated:
+        messages.error(request,'Ya estas logeado ')
         return redirect('home')
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

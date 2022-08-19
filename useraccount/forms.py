@@ -10,15 +10,7 @@ class RegisterForm(forms.Form):
                                     'placeholder' : 'Username'
                                 }))
     
-    role = forms.NullBooleanField(widget=forms.Select(
-                            choices= [
-                                       
-                                        ('', 'Cuidador de perro'),
-                                         ('', 'Dueño de perro'),
-
-                                        
-                                    ]
-                                ))
+    
     email = forms.EmailField(required=True,
                             widget=forms.EmailInput(attrs={
                                 'class' : 'form-control',
