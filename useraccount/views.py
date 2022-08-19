@@ -1,7 +1,10 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,logout,login
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import  messages
-from .forms import RegisterForm
+from django.urls import reverse_lazy
+from .forms import EditProfileForm, RegisterForm
+from django.views import generic
 
 # Create your views here.
 
@@ -20,7 +23,7 @@ def login_doggy(request):
             return redirect('home')
 
         else:
-            messages.success(request,'Usuario o contraseña no validos')
+            messages.error(request,'Usuario o contraseña no validos')
         
     return render(request,'login.html', {})
 
@@ -46,3 +49,9 @@ def logout_doggy(request):
     logout(request)
     messages.success(request,'Salió de sesión exitosamente')
     return redirect('home')
+  
+
+def edit_profile(request):
+    context ={}
+    context['form']= EditProfileForm()
+    return render(request, "edit_profile.html", context)

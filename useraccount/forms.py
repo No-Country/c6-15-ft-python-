@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserChangeForm
 class RegisterForm(forms.Form):
     username = forms.CharField(required=True,
                                 min_length=4, max_length=50,
@@ -60,3 +61,7 @@ class RegisterForm(forms.Form):
             self.cleaned_data.get('password'),
 
         )
+
+class EditProfileForm(forms.Form):
+    username = forms.CharField(max_length = 200)
+    
