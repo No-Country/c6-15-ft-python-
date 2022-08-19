@@ -21,7 +21,7 @@ def createPet(request,user):
         if form.is_valid():
             formulario = form.save(commit=False)
             user = User.objects.get(username = request.user.username)
-            formulario.petowner_id = user
+            formulario.user_id = user
             formulario.save()
             return redirect('home')
     else:

@@ -44,5 +44,5 @@ def logout_doggy(request):
     if not request.user.is_authenticated:
         return redirect('home')
     logout(request)
-    messages.success(request,'Salio de Secion exitosamente')
+    messages.success(request,'Salió de sesión exitosamente')
     return redirect('home')
