@@ -12,7 +12,7 @@ class FormularioPets(forms.ModelForm):
         
         labels = {
             'name': 'Nombre del Cachorro',
-            'age': 'Apellidos del autor',
+            'age': 'Edad del cachorro',
             'size': 'Talla del Cachorro',
             'condition': 'Condiciones Especiales del Cachorro',
             'accesories': 'Accesorios',
