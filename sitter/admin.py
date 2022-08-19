@@ -6,7 +6,7 @@ from .models import Sitter
 class SitterAdmin(admin.ModelAdmin):
     list_display = ( 'user_id','price', 'descripcion','status', 'picture_site')
     ordering = ('user_id',)
-    search_fields = ('user_id__username','price','description','status')
+    search_fields = ('user_id__username','price','descripcion','status')
 
 
 
