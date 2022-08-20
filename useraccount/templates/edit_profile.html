@@ -3,8 +3,12 @@
 
 {% load static %}
 {% if user.is_authenticated %}
+
   <img class="img-fluid h-100 w-100" src="{% static 'img/fondo.jpg' %}" alt="" style="position: relative;">
     <div class="d-flex text-start align-items-start justify-content-center pt-5 m-5">
+      <div class="container-fluid text-start">
+        <p>{{ user.id }}</p>
+      </div>
       <form method="POST" class=" bg-light row p-5 col-md-3 border boder-primary rounded shadow-lg" style="position: absolute; margin-top: -500px">
         {% csrf_token %}
         {{ form.as_p }}
