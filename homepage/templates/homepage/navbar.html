@@ -40,24 +40,27 @@
           <a class="nav-link" href="#portfolio">Ayuda</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'edit_profile' %}"
-          >Editar perfil</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'editpro' %}"
-          >Editar Profile DOS</a>
-        </li>
-
+    
         <li class="nav-item">
           <a class="nav-link" href="{% url 'pet:register' user.id  %}"
           >Registrar canino</a>
         </li>
         
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Personal Profile
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'useraccount:editpro' %}">Editar cuenta</a></li>
+            <li><a class="dropdown-item" href="{% url 'useraccount:password' %}">Cambiar password</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Agregar perfil</a></li>
+          </ul>
+        </li>
+        
         
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket pe-2"></i>Salir</a>
+          <a class="nav-link" href="{% url 'useraccount:logout' %}"><i class="fa-solid fa-arrow-right-from-bracket pe-2"></i>Salir</a>
         </li>
         
         
@@ -72,10 +75,10 @@
           <a class="nav-link" href="#">Convertirse en cuidador</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}">Registrarme</a>
+          <a class="nav-link" href="{% url 'useraccount:register' %}">Registrarme</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+          <a class="nav-link" href="{% url 'useraccount:login' %}">Iniciar sesión</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#portfolio">Ayuda</a>

@@ -55,8 +55,6 @@ class RegisterForm(forms.Form):
 
         )
 
-class EditProfileForm(forms.Form):
-    username = forms.CharField(max_length = 200)
     
 class UserChangeForm(forms.Form):
     username = forms.CharField(required=True,

@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib import  messages
 from django.urls import reverse_lazy
-from .forms import EditProfileForm, RegisterForm, PwdChangingForm
+from .forms import RegisterForm, PwdChangingForm
 from django.views import generic
 from useraccount.models import Profile
 
@@ -54,11 +54,6 @@ def logout_doggy(request):
     messages.success(request,'Salió de sesión exitosamente')
     return redirect('home')
   
-
-def edit_profile(request):
-    context ={}
-    context['form']= EditProfileForm()
-    return render(request, "edit_profile.html", context)
 
 class UserEditView(generic.UpdateView):
    # form_class = UserChangeForm
