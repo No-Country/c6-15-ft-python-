@@ -1,8 +1,9 @@
 {% extends "homepage/base.html" %}
-
 {% block content %}
-<div style="margin-top: 10%;">
-    <form action="" method="post" class="container">
+{% load static %}
+<img class="img-fluid h-100 w-100" src="{% static 'img/fondo-login.jpg' %}" alt="" style="position: relative;">
+<div class="d-flex text-start align-items-start justify-content-start pt-5 m-5">
+    <form method="post" class=" bg-light row p-2 col-md-5 border boder-primary rounded shadow-lg" style="position: absolute; margin-top: -780px">
     {% csrf_token %}
     
         <div>
@@ -10,9 +11,8 @@
             {% comment %} {{form.petowner_id.user.username} {% endcomment %}
         </div>
     
-    <div class=''>
-        <button type="submit" class='btn btn-success '>Crear</button>
-        <a class='btn btn-danger ' href={% url 'home' %}>Cancelar</a>
+      <button type="submit" class='row-1 btn btn-primary p-2 '>Crear</button>
+        <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
     </form>
    
 </div>    
