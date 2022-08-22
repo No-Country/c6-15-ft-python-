@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,logout,login
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib import  messages
 from django.urls import reverse_lazy
-from .forms import RegisterForm, PwdChangingForm
+from .forms import RegisterForm, PwdChangingForm, ProfileForm
 from django.views import generic
 from useraccount.models import Profile
 
@@ -63,10 +64,36 @@ class UserEditView(generic.UpdateView):
     
     def get_object(self):
       return self.request.user
+
+
+class UserEditExtendedView(generic.UpdateView):
+    model= Profile
+    template_name = 'registration/editprofile.html'
+    fields = ['street', 'city', 'zip', 'country','stars_average','photo']
+    success_url = reverse_lazy('home')
     
+        
 class PwdChangeView(PasswordChangeView):
     form_class = PwdChangingForm
     success_url = reverse_lazy('password_success')
   
 def password_success(request):
     return render(request, 'registration/password_success.html',{})
+
+def create_profile(request,user):
+    if request.user.is_authenticated:
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            formulario = form.save(commit=False)
+            user = User.objects.get(username = request.user.username)
+            formulario.user_id = user
+            form.save()
+            return redirect('home')
+        context = {
+            'form': form,
+        }
+   
+        return render(request, 'registration/profile.html', context)
+    else:
+        return render(request, 'profile.html')  
+      

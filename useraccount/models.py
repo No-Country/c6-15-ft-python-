@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Profile(models.Model):
-    street        = models.CharField(max_length=20)
+    street        = models.CharField(max_length=15020)
     zip           = models.IntegerField()
     city          = models.CharField(max_length=100)
     country       = models.CharField(max_length=100)
