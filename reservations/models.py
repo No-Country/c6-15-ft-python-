@@ -18,23 +18,20 @@ status_reservations = [
 ]
 
 
-class reservations(models.Model):
+class Reservations(models.Model):
+    reservation_date = models.DateField(auto_now_add=True)
     check_in = models.DateField()
     check_out = models.DateField()
     payment_type = models.IntegerField(null=False, blank=False, choices=payments_types , default=1)
-    status = models.IntegerField(null=False, blank=False, choices=status_reservations , default=1)
+    status = models.IntegerField(null=False, blank=False, choices=status_reservations , default=2)
     sitter_publication = models.ForeignKey(Sitter, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return self.reservations_id
+        return self.user_id
 
     class meta:
         verbose_name = 'Reservation'
         verbose_name_plural = 'Reservation'
-        ordering = ['check_in']
-        unique_together = ('check_in', 'check_out', 'sitter_publication')
-        constraints = [
-            models.UniqueConstraint(fields=['check_in', 'check_out', 'sitter_publication'], name='unique_reservations')
-        ]
+         
