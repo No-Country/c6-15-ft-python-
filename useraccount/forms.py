@@ -76,27 +76,16 @@ class PwdChangingForm(PasswordChangeForm):
       fields = ('old_password', 'new_password1', 'new_password2')  
 
 
-#class ProfileForm(forms.ModelForm):
- #   class Meta:
-  #      model = Profile
-   #     fields = ['street', 'zip', 'city', 'country', 'photo']
 
-    #    widgets = {
-     #       'street': forms.TextInput(attrs={'class':'form-control','placeholder':'Street'}),
-      #      'zip': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Zip Code'}),
-       #     'country': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Country'}),
-            
-       # }
-        
    
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['street', 'zip', 'city', 'country', 'photo']
-        
+        fields = ['street', 'zip', 'city', 'country', 'stars_average', 'photo', 'user_role', 'user']
+        exclude= ('stars_average','user','user_role',)
         labels = {
-            'street': 'Domicilio',
+            'Domicilio': 'Street',
             'zip': 'Código Postal',
             'city': 'Ciudad',
             'country': 'País',

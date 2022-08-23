@@ -53,13 +53,8 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'useraccount:editpro' %}">Editar cuenta</a></li>
             <li><a class="dropdown-item" href="{% url 'useraccount:password' %}">Cambiar password</a></li>
-            {% if user.profile.id == user.id %}
             <li><a class="dropdown-item" href="{% url 'useraccount:editprofile' user.profile.id %}">Editar Perfil</a></li>
-            {% endif %}
-            {% if user.profile.id != user.id %}
-              <li><a class="dropdown-item" href="{% url 'useraccount:create_profile' user.id %}">Agregar perfil</a></li>
-            {% endif  %}  
-  
+              
           </ul>
         </li>
         

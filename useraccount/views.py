@@ -43,11 +43,21 @@ def register(request):
             login(request,user)
             messages.success(request,'Cuenta creada exitosamente')
             return redirect('home')
+           
 
     return render(request,'register.html',{
         'form' : form,
     })
 
+def assign_role(request):
+    if request.method == 'POST':
+        user_id =request.POST.get('user')
+        mod = Profile.objects.create(user = user_id)
+        if mod.is_valid():
+            mod.save()
+            return render(request,'home.html',{})  
+  
+  
 def logout_doggy(request):
     if not request.user.is_authenticated:
         return redirect('home')
@@ -79,14 +89,13 @@ class PwdChangeView(PasswordChangeView):
   
 def password_success(request):
     return render(request, 'registration/password_success.html',{})
-
-def create_profile(request,user):
+'''
+def create_profile(request):
     if request.user.is_authenticated:
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             formulario = form.save(commit=False)
-            user = User.objects.get(username = request.user.username)
-            formulario.user_id = user
+            formulario.user = User.objects.get(username = request.user.username)
             form.save()
             return redirect('home')
         context = {
@@ -97,3 +106,4 @@ def create_profile(request,user):
     else:
         return render(request, 'profile.html')  
       
+'''
