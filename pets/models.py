@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Pet(models.Model):
     name = models.CharField('nombre de la mascota',max_length=20)
-    age = models.IntegerField('edad de mascota')
+    age = models.PositiveIntegerField('edad de mascota')
     size = models.CharField('talla de la mascota',max_length=255)
     condition = models.CharField('Condiciones de la mascota',max_length=255)
     accesories = models.CharField('accesorios de la mascota',max_length=255)

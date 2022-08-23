@@ -25,6 +25,7 @@ class FormularioPets(forms.ModelForm):
                 attrs={
                     'class':'form-control',
                     'placeholder':'nombre',
+                   
                 }
             ),
             
