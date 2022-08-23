@@ -16,7 +16,7 @@ def create_reservation(request, pk):
             formulario.user_id = user
             formulario.sitter_publication = sitter_id
             form.save()
-            return redirect('index.html')
+            return redirect('index')
         
         context ={
             'form':form

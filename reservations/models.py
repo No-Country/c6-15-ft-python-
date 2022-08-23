@@ -29,7 +29,8 @@ class Reservations(models.Model):
 
 
     def __str__(self):
-        return self.user_id
+        return f'{self.reservation_date}'
+
 
     class meta:
         verbose_name = 'Reservation'
