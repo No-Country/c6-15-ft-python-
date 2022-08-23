@@ -4,11 +4,9 @@
 
 
 
-<img class="img-fluid h-100 w-100" src="{% static 'img/portada.jpg' %}" alt="" style="position: relative;">
-
-  <div class="d-flex text-start align-items-start justify-content-center pt-5 m-5">
-
-    <form method="post" class=" bg-light row p-5 col-md-3 border boder-primary rounded shadow-lg" style="position: absolute; margin-top: -600px">
+  <img class="img-fluid h-100 w-100" src="{% static 'img/fondo-login.jpg' %}" alt="" style="position: relative;">
+  <div class="d-flex justify-content-start text-start align-items-start  pt-5 m-5">
+    <form method="post" class="bg-light row p-5 col-md-3 border boder-primary rounded shadow-lg" style="position: absolute; margin-top: -850px">
       {% csrf_token %}
     {% for field in form %}
     <div class="form-group p-2" >
@@ -21,8 +19,9 @@
     </div>
 
     {% endfor %}
-    <button type="submit" class="btn btn-primary">Registrarme</button>
+    <button type="submit" class="btn btn-primary mt-2">Registrarme</button>
+    <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
   </form>
-</div>
+    </div>
 
 {% endblock %}
