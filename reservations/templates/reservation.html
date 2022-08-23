@@ -1,0 +1,22 @@
+{% extends "homepage/base.html" %}
+
+{% block content %}
+
+<div class="container d-flex align-items-center justify-content-center p-3">
+    <form action="" class="row col-md-3 boder-primary bg-white p-5" method="post">
+      {% csrf_token %}
+  
+      <h3>Reservar</h3>
+      <label for="check_in">Fecha de entrada</label>
+      {{ form.check_in }}
+      <label for="check_out">Fecha de salida</label>
+      {{ form.check_out }}
+      <label for="payment_type">Tipo de pago</label>
+      {{ form.payment_type }}
+     
+  
+      <button type="submit" class="btn btn-success mt-2">Reservar</button>
+    </form>
+  </div>
+
+{% endblock %}
