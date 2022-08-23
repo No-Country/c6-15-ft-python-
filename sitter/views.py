@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from sitter.forms import SitterForm
 from django.contrib.auth.models import User
+from django.views.generic import ListView
+from .models import Sitter
+from .forms import SitterForm
+from django.urls import reverse_lazy
 # Create your views here.
 
 
@@ -20,3 +24,11 @@ def create_sitter(request,user):
         return render(request, 'sitter.html', context)
     else:
         return render(request, 'sitter.html')
+
+
+
+
+
+def sitter(request):
+    query = Sitter.objects.filter(status=1)
+    return render(request, 'sitter_publications.html', {'query':query})

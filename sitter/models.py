@@ -7,9 +7,11 @@ status_pub = [
 ]
 
 
+
+
 # Create your models here.
 class Sitter(models.Model):
-    price = models.IntegerField('precio')
+    price = models.PositiveIntegerField('precio')
     descripcion = models.CharField('descripcion',max_length=255)
     status = models.IntegerField('activo',null=False, blank=False, choices=status_pub , default=1)
     picture_site = models.ImageField('foto del sitio',upload_to="sitters/", null=True, blank=True)
