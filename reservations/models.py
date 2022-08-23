@@ -31,7 +31,6 @@ class Reservations(models.Model):
     def __str__(self):
         return f'{self.reservation_date}'
 
-
     class meta:
         verbose_name = 'Reservation'
         verbose_name_plural = 'Reservation'
