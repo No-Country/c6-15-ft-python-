@@ -89,21 +89,3 @@ class PwdChangeView(PasswordChangeView):
   
 def password_success(request):
     return render(request, 'registration/password_success.html',{})
-'''
-def create_profile(request):
-    if request.user.is_authenticated:
-        form = ProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            formulario = form.save(commit=False)
-            formulario.user = User.objects.get(username = request.user.username)
-            form.save()
-            return redirect('home')
-        context = {
-            'form': form,
-        }
-   
-        return render(request, 'registration/profile.html', context)
-    else:
-        return render(request, 'profile.html')  
-      
-'''
