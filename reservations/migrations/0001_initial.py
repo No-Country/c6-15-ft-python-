@@ -11,17 +11,20 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('sitter', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Sitter',
+            name='Reservations',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('price', models.PositiveIntegerField(verbose_name='precio')),
-                ('descripcion', models.CharField(max_length=255, verbose_name='descripcion')),
-                ('status', models.IntegerField(choices=[(1, 'Activa'), (2, 'Inactiva')], default=1, verbose_name='activo')),
-                ('picture_site', models.ImageField(blank=True, null=True, upload_to='sitters/', verbose_name='foto del sitio')),
+                ('reservation_date', models.DateField(auto_now_add=True)),
+                ('check_in', models.DateField()),
+                ('check_out', models.DateField()),
+                ('payment_type', models.IntegerField(choices=[(1, 'Efectivo'), (2, 'Tarjeta de crédito'), (3, 'Tarjeta de débito'), (4, 'Paypal')], default=1)),
+                ('status', models.IntegerField(choices=[(1, 'cancelar'), (2, 'confirmar')], default=2)),
+                ('sitter_publication', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='sitter.sitter')),
                 ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
