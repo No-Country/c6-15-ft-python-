@@ -1,11 +1,12 @@
 from datetime import datetime
 from multiprocessing import context
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from sitter.views import sitter
 from .forms import ReservationsForm
 from django.contrib.auth.models import User
 from sitter.models import Sitter
+from reservations.models import Reservations
 
 
 # Create your views here.
@@ -28,3 +29,4 @@ def create_reservation(request, id):
     else:
         return render(request, 'reservation.html')
     
+#vista para mostrar las reservaciones disponibles
