@@ -52,7 +52,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'useraccount:editpro' %}">Editar cuenta</a></li>
             <li><a class="dropdown-item" href="{% url 'useraccount:password' %}">Cambiar password</a></li>
-            <li><a class="dropdown-item" href="{% url 'useraccount:editprofile' user.id %}">Editar Perfil</a></li>
+            {% comment %} <li><a class="dropdown-item" href="{% url 'useraccount:editprofile' user.id %}">Editar Perfil</a></li> {% endcomment %}
               
           </ul>
         </li>
