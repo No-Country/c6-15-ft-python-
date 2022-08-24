@@ -32,6 +32,7 @@ urlpatterns = [
     path('useraccount/', include('useraccount.urls')),
     path('pets/', include('pets.urls')),
     path('sitter/', include('sitter.urls')),
+    path('reservations/', include('reservations.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

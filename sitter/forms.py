@@ -6,8 +6,8 @@ from sitter.models import Sitter
 
 class SitterForm(forms.ModelForm):
     
-    
-    
+
+
     class Meta:
         model = Sitter
         fields = ['price', 'descripcion', 'status', 'picture_site']
