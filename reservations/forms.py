@@ -1,20 +1,19 @@
-from cProfile import label
 from dataclasses import fields
-from pyexpat import model
+from datetime import datetime
 from django import forms
 from .models import Reservations
+from datetime import date
+
+today = date.today()
 
 class ReservationsForm(forms.ModelForm):
 
+     check_in = forms.DateField(widget=forms.TextInput(attrs={'min': today, 'value': today ,'placeholder': 'Check In', 'type': 'date' }))
+     check_out = forms.DateField(widget=forms.TextInput(attrs={'min': today, 'value': today ,'placeholder': 'Check Out', 'type': 'date' }))
 
-    class Meta:
+     class Meta:
         model = Reservations
         fields = ['check_in', 'check_out', 'payment_type']
 
 
-        widgets = {
-
-            'check_in': forms.DateInput(format=('%m/%d/%Y'), attrs={'class': 'form-control', 'placeholder': 'Check In', 'type': 'date'}),
-            'check_out': forms.DateInput(format=('%m/%d/%Y'), attrs={'class': 'form-control', 'placeholder': 'Check Out', 'type': 'date'})
-
-        }
+       
