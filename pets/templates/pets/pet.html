@@ -1,9 +1,13 @@
 {% extends "homepage/base.html" %}
 {% block content %}
 {% load static %}
-<img class="img-fluid h-100 w-100" src="{% static 'img/fondo-login.jpg' %}" alt="" style="position: relative;">
-<div class="d-flex text-start align-items-start justify-content-start pt-5 m-5">
-    <form method="post" class=" bg-light row p-2 col-md-5 border boder-primary rounded shadow-lg" style="position: absolute; margin-top: -780px">
+
+
+<div class="d-flex p-5 justify-content-start w-100 h-100" style="background-image:url({% static 'img/fondo-login.jpg' %}); background-size: cover; background-repeat:no-repeat;"> 
+    <!--<img class="img-fluid h-100 w-100" src="{% static 'img/fondo-login.jpg' %}" alt="" style="position: relative;"> -->
+    <div class="py-5">
+    <form method="post" class="bg-light row p-5 col-lg-8 border boder-primary rounded shadow-lg mt-5 ms-md-5">
+      {% csrf_token %}
     {% csrf_token %}
     
         <div>
@@ -14,6 +18,6 @@
       <button type="submit" class='row-1 btn btn-primary p-2 '>Crear</button>
         <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
     </form>
-   
+    </div> 
 </div>    
 {% endblock  %}
