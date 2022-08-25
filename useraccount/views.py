@@ -1,3 +1,4 @@
+from wsgiref.util import request_uri
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,logout,login
 from django.contrib.auth.models import User
@@ -5,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib import  messages
 from django.urls import reverse_lazy
-from .forms import RegisterForm, PwdChangingForm, ProfileForm
+from .forms import RegisterForm, PwdChangingForm, ProfileForm, UsrChangeFrm
 from django.views import generic
 from useraccount.models import Profile
 
@@ -65,27 +66,30 @@ def logout_doggy(request):
     messages.success(request,'Salió de sesión exitosamente')
     return redirect('home')
   
-
 class UserEditView(generic.UpdateView):
-   # form_class = UserChangeForm
+    model = User
+    form_class = UsrChangeFrm
     template_name = 'registration/editpro.html'
-    fields = ['username', 'first_name', 'last_name', 'email']
-    success_url = reverse_lazy('home')
+  
+    success_url = reverse_lazy("useraccount:pwdsuccess")
     
     def get_object(self):
       return self.request.user
 
-
 class UserEditExtendedView(generic.UpdateView):
     model= Profile
+    form_class = ProfileForm
     template_name = 'registration/editprofile.html'
-    fields = ['street', 'city', 'zip', 'country','stars_average','photo']
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy("useraccount:pwdsuccess")
     
-        
+
+
 class PwdChangeView(PasswordChangeView):
     form_class = PwdChangingForm
-    success_url = reverse_lazy('password_success')
-  
-def password_success(request):
-    return render(request, 'registration/password_success.html',{})
+    success_url = reverse_lazy("useraccount:pwdsuccess")
+    
+def pwdsuccess(request):
+    messages.success(request,'Datos cambiados correctamente')  
+    return redirect('home')
+    
+

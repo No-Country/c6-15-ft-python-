@@ -6,14 +6,14 @@
 {% if user.is_authenticated %}
 
 <div class="d-flex items-aling-center justify-content-center pt-5">
-  <form class="row-2 p-5 m-5 border border-dark rounded" action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{form.as_p}}
-      <div class="d-flex items-aling-center justify-content-center pt-2">
-          <input type="submit" class="btn btn-success" value="Actualizar perfil" />
-      </div>
+  <form class="row-2 p-5 m-5 border border-dark rounded" action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="d-grid gap-2">
+      <button class="btn btn-success" type="submit">Enviar</button>
+      <a class='btn btn-danger' href={% url 'home' %}>Cancelar</a>
+    </div>  
   </form>
-
 </div>
 {% else %}
  You´re not allowed here!    

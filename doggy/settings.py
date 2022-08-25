@@ -34,8 +34,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'useraccount',
     'homepage',
+    'useraccount',
     'sitter',
     'pets',
     'reservations',
