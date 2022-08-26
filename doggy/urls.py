@@ -21,7 +21,7 @@ from pets import urls
 from sitter import urls
 from django.conf import settings
 from django.conf.urls.static import static
-
+from help import urls
 
 
 
@@ -33,6 +33,7 @@ urlpatterns = [
     path('pets/', include('pets.urls')),
     path('sitter/', include('sitter.urls')),
     path('reservations/', include('reservations.urls')),
+    path('help/', include('help.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

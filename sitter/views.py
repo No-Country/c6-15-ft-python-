@@ -33,9 +33,9 @@ def sitter(request):
     query = Sitter.objects.filter(status=1)
     return render(request, 'sitter_publications.html', {'query':query})
 
+
+
 def sitter_details(request, pk):
     if request.user.is_authenticated:
-        details = get_object_or_404(Sitter, id=pk)
-        print(details)
-        
+        details = get_object_or_404(Sitter, id=pk)  
     return render(request, 'sitter_detail.html', {'details':details})

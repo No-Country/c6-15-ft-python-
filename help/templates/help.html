@@ -1,0 +1,18 @@
+{% extends "homepage/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center p-3">
+    <form action="" class="row col-md-6 boder-primary bg-white p-5" method="post">
+      {% csrf_token %}
+  
+      <h3>Contactanos</h3>
+      <label for="Email">Email</label>
+      <input type="email" name="email" id="email">
+      <label for="Mensaje">Mensaje</label>
+      <textarea class="mt-2" name="message" id="" cols="30" rows="10"></textarea>
+      <button class="btn btn-primary mt-4">Enviar</button>
+      
+    </form>
+  </div>
+
+{% endblock %}
