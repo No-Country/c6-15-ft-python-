@@ -1,27 +1,27 @@
 {% extends 'homepage/base.html' %}
 {% block content %}
-
 {% load static %}
 
 
+<div class="d-flex p-5 justify-content-start w-100 h-100" style="background-image:url({% static 'img/fondo-login.jpg' %}); background-size: cover; background-repeat:no-repeat;"> 
+    <div class="py-5">
+   <form method="post" class="row g-0 bg-light p-5 col-lg-5 border boder-primary rounded shadow mt-5 ms-md-5">
+     <h3 class="row p-lg-3 justify-content-center">Iniciá sesión en Doggy</h3>
+	        {% csrf_token %}
+      <div class="form-group">
+	    <label for="username">Username</label>
+	      <input type="text" name="username" class="form-control">
+      </div>
+      <div class="form-group">
 
-<img class="img-fluid h-100 w-100" src="{% static 'img/fondo-login.jpg' %}" alt="" style="position: relative;">
-  <div class="d-flex text-start align-items-start justify-content-start pt-5 m-5">
-    <form method="post" class=" bg-light row p-5 col-md-3 border boder-primary rounded shadow-lg" style="position: absolute; margin-top: -700px">
-  {% csrf_token %}
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" name="username" class="form-control">
+	     <label for="password">Password</label>
+	    <input type="password" name="password" class="form-control">
+      </div>
+      <button type="submit"  class="btn btn-primary mt-2">Enviar</button>
+      <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
+    </form>
   </div>
-  <div class="form-group">
+</div>
+</div>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" class="form-control">
-
-  </div>
-  <button type="submit"  class="btn btn-primary mt-2">Enviar</button>
-  <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
-
-</form>
-  </div>
 {% endblock %}

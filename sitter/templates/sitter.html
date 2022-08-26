@@ -5,6 +5,7 @@
         
         {% csrf_token %}
         {{form.as_p}}
+        {{ form.non_field_errors }}
         <div class="d-flex items-aling-center justify-content-center pt-2">
             <input type="submit" class="btn btn-success" value="Registrarme como cuidador" />
         </div>
