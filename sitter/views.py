@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from sitter.forms import SitterForm
 from django.contrib.auth.models import User
 from django.views.generic import ListView
 from .models import Sitter
 from .forms import SitterForm
 from django.urls import reverse_lazy
+from useraccount.forms import RegisterForm
 from django.contrib import  messages
+
 # Create your views here.
 
 
@@ -32,6 +34,15 @@ def create_sitter(request,user):
         return render(request, 'sitter.html')
 
 
+def sitter(request):
+    query = Sitter.objects.filter(status=1)
+    return render(request, 'sitter_publications.html', {'query':query})
+    
+
+def sitter_details(request, id):
+    if request.user.is_authenticated:
+        details = get_object_or_404(Sitter, id = id) 
+    return render(request, 'sitter_detail.html', {'details':details})
 
 
 
