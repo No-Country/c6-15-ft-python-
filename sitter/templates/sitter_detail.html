@@ -1,12 +1,22 @@
-{{details.price}}
-{{details.picture.url}}
-{{details.user_id}}
+
+{% extends "homepage/base.html" %}
+{% load static %} 
+
+{% block content %}
+  
 
 
+    
+      <div class="container-fluid mt-5 card  ">
+        <div class="card-body card ">
+          <h5 class="card-title bg-secondary ">Detalle de la publicacion</h5>
+          <p class="card-text">{{details.descripcion}}</p>
+          <p class="card-text">Precio del servicio ${{ details.price }}</p>
+          <p class="card-text">Nombre del cuidador: &nbsp; {{details.user_id}}</p>
+          <img src="{{details.picture_site.url}}" class=" img-fluid rounded-start img-thumbnail" width="600" height="300" alt="...">
+        </div>
+      </div>
 
-{% comment %} price = models.PositiveIntegerField('precio')
-    descripcion = models.CharField('descripcion',max_length=255)
-    status = models.IntegerField('activo',null=False, blank=False, choices=status_pub , default=1)
-    picture_site = models.ImageField('foto del sitio',upload_to="sitters/", null=True, blank=True)
-    #user relationship
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE) {% endcomment %}
+{% endblock %}
+
+
