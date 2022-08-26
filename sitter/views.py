@@ -6,6 +6,8 @@ from .models import Sitter
 from .forms import SitterForm
 from django.urls import reverse_lazy
 from useraccount.forms import RegisterForm
+from django.contrib import  messages
+
 # Create your views here.
 
 
@@ -16,9 +18,14 @@ def create_sitter(request,user):
             formulario = form.save(commit=False)
             user = User.objects.get(username = request.user.username)
             formulario.user_id = user
-            form.save()
-            return redirect('home')
-        context = {
+            if is_valid_publication(user):
+                form.save()
+                messages.success(request,'Felicidades!, acabas de anunciarte')  
+                return redirect('home')
+            else:
+                messages.error(request,'Acción no permitida: ya cuenta con una publicación')  
+                return redirect('home')
+        context = { 
             'form': form,
         }
    
@@ -38,4 +45,11 @@ def sitter_details(request, id):
     return render(request, 'sitter_detail.html', {'details':details})
 
 
-    
+
+def sitter(request):
+    query = Sitter.objects.filter(status=1)
+    return render(request, 'sitter_publications.html', {'query':query})
+  
+def is_valid_publication(user_name):
+    return not Sitter.objects.filter(user_id=user_name)
+  
