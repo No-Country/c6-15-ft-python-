@@ -28,14 +28,14 @@ SECRET_KEY = 'django-insecure-0u^763oms^o_ygnz%p#+5=#-&y$^&ps8yda0h#241i%s81qk7t
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'useraccount',
     'homepage',
+    'useraccount',
     'sitter',
     'pets',
     'reservations',
@@ -103,6 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 6,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -115,6 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
