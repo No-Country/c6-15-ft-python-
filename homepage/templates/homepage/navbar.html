@@ -47,12 +47,14 @@
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Personal Profile
+            Ver perfil 
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'useraccount:editpro' %}">Editar cuenta</a></li>
             <li><a class="dropdown-item" href="{% url 'useraccount:password' %}">Cambiar password</a></li>
-            <!-- <li><a class="dropdown-item" href="{% url 'useraccount:editprofile' user.id %}">Editar Perfil</a></li> -->
+
+            <li><a class="dropdown-item" href="{% url 'useraccount:editprofile' user.id %}">Editar Perfil</a></li>
+
               
           </ul>
         </li>
