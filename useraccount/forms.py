@@ -1,9 +1,17 @@
-from pydoc import visiblename
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm, UserChangeForm
 from django.urls import reverse_lazy
 from .models import Profile
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+
+def validate_zip(value):
+    if len(str(value)) >5:
+        raise ValidationError(
+            _('%(value)s Se requieren cinco dígitos'),
+            params={'value': value},
+        )
 class RegisterForm(forms.Form):
     username = forms.CharField(required=True,
                                 min_length=4, max_length=50,
@@ -85,9 +93,9 @@ class UsrChangeFrm(UserChangeForm):
         
     
 class PwdChangingForm(PasswordChangeForm):
-    old_password = forms.CharField(label='Password actual',widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
-    new_password1= forms.CharField(label='Password nuevo',max_length=100,widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
-    new_password2= forms.CharField(label='Confirma password',max_length=100,widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password'}))
+    old_password = forms.CharField(label='Password actual',widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password','placeholder':'Clave actual'}))
+    new_password1= forms.CharField(label='Password nuevo',max_length=100,widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password','placeholder':'Almenos seis dígitos'}))
+    new_password2= forms.CharField(label='Confirma password',max_length=100,widget=forms.PasswordInput(attrs={'class': 'form-control', 'type':'password','placeholder':'Almenos seis dígitos'}))
 
     class Meta:
       model = User
@@ -100,7 +108,7 @@ class PwdChangingForm(PasswordChangeForm):
 class ProfileForm(forms.ModelForm):
     street = forms.CharField(label='Calle',
                              widget=forms.TextInput(attrs={'class': 'form-control'}))
-    zip = forms.IntegerField(label='Código Postal',
+    zip = forms.IntegerField(label='Código Postal', validators=[validate_zip],
                              widget=forms.NumberInput(attrs={'class': 'form-control'}))
     city = forms.CharField(label='Ciudad',
                              widget=forms.TextInput(attrs={'class': 'form-control', 'type':'text'}))
