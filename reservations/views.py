@@ -47,3 +47,11 @@ def detail_reservation(request, id):
 
 
 
+def notification(request, id):
+            id_publications = Sitter.objects.get(id = id)  
+            list_reservations_id = Reservations.objects.values('sitter_publication__user_id__email')
+            print(list_reservations_id)
+
+# 1 consultar id de quien publico (sitter)
+# 2 consultar en tabla usuario a quien pertenece el id de el sitter
+# 3 acceder a campos de la segunda consulta y obtener el email
