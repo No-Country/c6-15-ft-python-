@@ -15,7 +15,7 @@ def create_reservation(request, id):
             formulario = form.save(commit=False)
             user = User.objects.get(username = request.user.username)
             formulario.user_id = user
-            id = Sitter.objects.get(id = id) 
+            id = Sitter.objects.get(id = id)
             formulario.sitter_publication =  id #refrencia al id de publicacion de sitter
             
             form.save()

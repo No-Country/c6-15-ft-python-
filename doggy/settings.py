@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'sitter',
     'pets',
     'reservations',
+    'help',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -145,3 +146,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#EMAIL SETTINGS
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'apdoggy27@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('USER_MAIL_PASSWORD')
+EMAIL_USE_TLS = True
