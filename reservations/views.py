@@ -13,10 +13,12 @@ def create_reservation(request, id):
         form = ReservationsForm(request.POST)
         if form.is_valid():
             formulario = form.save(commit=False)
-            user = User.objects.get(username = request.user.username)
+            user = User.objects.get(username=request.user.username)
             formulario.user_id = user
+
             id = Sitter.objects.get(id = id)
-            formulario.sitter_publication =  id #refrencia al id de publicacion de sitter
+            formulario.sitter_publication =  id # refrencia al id de publicacion de sitter
+
             form.save()
             if form.save():
                 email_id = id.user_id.email
@@ -27,25 +29,23 @@ def create_reservation(request, id):
 
             list_reservations_id = Reservations.objects.values('id')
             lista = []
-            for elem in reversed(list_reservations_id):      
-                for k,v in elem.items(): 
+            for elem in reversed(list_reservations_id):
+                for k, v in elem.items():
                     lista.append(v)
                     if len(lista) == 1:
                         break
-            
+
             return redirect('detail_reservation', lista[0])
-        
-        context ={
-            'form':form
+
+        context = {
+            'form': form
         }
         return render(request, 'reservation.html', context)
     else:
         return render(request, 'reservation.html')
-    
 
 
-#vista para mostrar detalles de la reservacion 
-
+# vista para mostrar detalles de la reservacion
 def detail_reservation(request, id):
     if request.user.is_authenticated:
         detail = get_object_or_404(Reservations, id = id)
@@ -53,3 +53,4 @@ def detail_reservation(request, id):
 
 
                 
+
