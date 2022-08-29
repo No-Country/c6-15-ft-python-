@@ -20,7 +20,7 @@ def send_email(request,email):
     mensaje['Subject']="alguien reservo tu publicacion de DOGGY"
 
     
-    content = render_to_string('email_sitter_templates.html', {'user': User.objects.get(pk = 1)})
+    content = render_to_string('email_sitter_templates.html', {'user': request.user})
     mensaje.attach(MIMEText(content, 'html'))
     
         # Envio del mensaje
