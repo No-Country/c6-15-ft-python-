@@ -12,6 +12,7 @@ urlpatterns = [
     path('<int:pk>', views.assign_role, name='assign_role'),
     path('logout',views.logout_doggy,name='logout'),
     path('editpro', UserEditView.as_view(), name='editpro'),
+
     
     path('editprofile/<int:pk>/', UserEditExtendedView.as_view(), name='editprofile'), 
    
