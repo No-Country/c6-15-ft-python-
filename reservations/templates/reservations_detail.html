@@ -1,0 +1,50 @@
+{% extends 'homepage/base.html' %}
+
+{% block content %}
+<div class="container-fluid mt-5  ">
+    <div class="text-center">
+        <br>
+        <h2>Detalle de la reservacion</h2>
+        <p><label for="check_in">Fecha de ingreso: </label>
+            {{detail.check_in}}</p>
+
+        <p><label for="check_out">Fecha de salida: </label>
+            {{detail.check_out}}</p>
+        <p>
+            {% if detail.payment_type is 1 %}
+            <p>Tipo de pago: efectivo</p>
+            {% elif detail.payment_type is 2 %}
+            <p>Tipo de pago: Tarjeta de credito</p>
+            {% elif detail.payment_type is 3 %}
+            <p>Tipo de pago: Tarjeta de debito</p>
+            {% elif detail.payment_type is 4 %}
+            <p>Tipo de pago: paypal</p>
+            {% endif %}
+        </p>
+
+        <p>
+            {% if detail.status is 2 %}
+            <label for="status">Status: </label>
+            <span class="text-success"> aprovado</span>
+            {% else %}
+            <label for="status">Status: </label>
+            <span class="text-danger">cancelado</span>
+            {% endif %}
+        </p>
+
+        <p><label for="user.id">Quien reserva: </label>
+            {{detail.user_id}}
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock  %}
