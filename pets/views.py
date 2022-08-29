@@ -28,9 +28,13 @@ def createPet(request,user):
             user = User.objects.get(username = request.user.username)
             formulario.user_id = user
             if not is_sitter(formulario.user_id):
-                formulario.save()
-                messages.success(request,'En hora buena!, registraste a doggy correctamente.')  
-                return redirect('home')
+                if is_valid_publication(user):
+                    formulario.save()
+                    messages.success(request,'En hora buena!, registraste a doggy correctamente.')  
+                    return redirect('home')
+                else:
+                    messages.error(request,'Acción no permitida: Anteriormente registraste una mascota')  
+                    return redirect('home')  
             else:
                 messages.error(request,'Acción no permitida: Anteriormente te registraste como cuidador')  
                 return redirect('home')
@@ -43,6 +47,8 @@ def createPet(request,user):
 def is_sitter(user_identification):
     return Sitter.objects.filter(user_id=user_identification)
 
+def is_valid_publication(user_name):
+    return not Pet.objects.filter(user_id=user_name)
 
    
             
