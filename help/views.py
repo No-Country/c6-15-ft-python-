@@ -1,35 +1,34 @@
-from django.conf import settings
 from django.shortcuts import render
-from django.template.loader import get_template
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
-# Create your views here.
+from django.template.loader import get_template
 
-def send_email(mail):
-    context = {'mail':mail}
+def send_email(subject, content, email ,*args):
+   
+            msg = EmailMultiAlternatives(subject, content, email, [email])
+            msg.attach_alternative(content ,'text/html')
+            msg.send()
+            
 
-    template = get_template('mail.html')
-    content = template.render(context)
+def send_email_help(request):
 
-    email = EmailMultiAlternatives(
-        'nuevo contacto',
-        'solicitu de ayuda',
-        settings.EMAIL_HOST_USER,
-        [mail]
-    )
+    if request.method == 'POST':
+            user = User.objects.get(username=request.user.username)
+            subject = f'Nueva solicitud de ayuda desde Doggy del usuario {user}'
+            text_content = request.POST.get('message')
+            email='apdoggy27@gmail.com'
+            context = {
+                'user':user,
+                'text_content':text_content,
+                'email':email
+            }
+            template = get_template('mail.html')
+            content = template.render(context)
 
-    email.attach_alternative(content, 'text,html')
-    email.send()
-
-
-
-#user contact with us
-def user_help(request):
-    if request.user.is_authenticated:
-        if request.method == 'POST':
-            mail = request.POST.get('mail')
-            #message = request.POST.get('message')
-
-            send_email(mail)
-
-    return render(request,'help.html', {})
-
+            send_email(subject,content, email,[email])
+            return render(request, 'help.html')
+        
+    return render(request, 'help.html')
+    
