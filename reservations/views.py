@@ -4,7 +4,7 @@ from .forms import ReservationsForm
 from django.contrib.auth.models import User
 from sitter.models import Sitter
 from reservations.models import Reservations
-from doggy import settings
+from helpers.send_email import send_email
 
 
 # Create your views here.
@@ -17,8 +17,14 @@ def create_reservation(request, id):
             formulario.user_id = user
             id = Sitter.objects.get(id = id)
             formulario.sitter_publication =  id #refrencia al id de publicacion de sitter
-            
             form.save()
+            if form.save():
+                email_id = id.user_id.email
+                send_email(request,email_id)
+                print(email_id)
+
+
+
             list_reservations_id = Reservations.objects.values('id')
             lista = []
             for elem in reversed(list_reservations_id):      
@@ -46,12 +52,4 @@ def detail_reservation(request, id):
         return render(request, 'reservations_detail.html', {'detail':detail})
 
 
-
-def notification(request, id):
-            id_publications = Sitter.objects.get(id = id)  
-            list_reservations_id = Reservations.objects.values('sitter_publication__user_id__email')
-            print(list_reservations_id)
-
-# 1 consultar id de quien publico (sitter)
-# 2 consultar en tabla usuario a quien pertenece el id de el sitter
-# 3 acceder a campos de la segunda consulta y obtener el email
+                
