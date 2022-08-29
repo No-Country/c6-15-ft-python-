@@ -32,12 +32,20 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto py-4 py-lg-0">
         {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'sitter_list' %}">Buscar cuidadores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
-        </li>
+        
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sitter_list' %}">Buscar cuidadores</a>
+            </li>
+          
+          {% if role=='Buscador' %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
+            </li>
+          {% else %}  
+          <li class="nav-item">
+            <a class="nav-link disabled" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
+          </li>
+          {% endif %}  
         
 
         <li class="nav-item">
