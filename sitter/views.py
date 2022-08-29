@@ -6,9 +6,8 @@ from .models import Sitter
 from pets.models import Pet
 from .forms import SitterForm
 from django.urls import reverse_lazy
-from useraccount.forms import RegisterForm
 from django.contrib import  messages
-
+from useraccount.forms import RegisterForm
 # Create your views here.
 
 
@@ -43,6 +42,10 @@ def create_sitter(request,user):
 def sitter(request):
     query = Sitter.objects.filter(status=1)
     return render(request, 'sitter_publications.html', {'query':query})
+  
+def is_valid_publication(user_name):
+    return not Sitter.objects.filter(user_id=user_name)
+  
     
 
 def sitter_details(request, id):
@@ -51,6 +54,7 @@ def sitter_details(request, id):
     return render(request, 'sitter_detail.html', {'details':details})
 
 
+<<<<<<< HEAD
 
 def sitter(request):
     query = Sitter.objects.filter(status=1)
@@ -61,3 +65,6 @@ def is_valid_publication(user_name):
   
 def is_petowner(user_identification):
     return Pet.objects.filter(user_id=user_identification)
+=======
+    
+>>>>>>> 1642af973b213167f2b234860a1760309ccedd09

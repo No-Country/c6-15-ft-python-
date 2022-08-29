@@ -25,8 +25,7 @@
     aria-expanded="false"
     aria-label="Toggle navigation"
     >
-    Menu
-      <i class="fas fa-bars ms-1"></i>
+    <span class="navbar-toggler-icon"></span>
     </button>
     
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -49,7 +48,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link" href="#portfolio">Ayuda</a>
+          <a class="nav-link" href="{% url 'send_email_help' %}">Ayuda</a>
         </li>
 
     
@@ -65,9 +64,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'useraccount:editpro' %}">Editar cuenta</a></li>
             <li><a class="dropdown-item" href="{% url 'useraccount:password' %}">Cambiar password</a></li>
-
             <li><a class="dropdown-item" href="{% url 'useraccount:editprofile' user.id %}">Editar Perfil</a></li>
-
               
           </ul>
         </li>
