@@ -15,11 +15,6 @@ urlpatterns = [
 
     
     path('editprofile/<int:pk>/', UserEditExtendedView.as_view(), name='editprofile'), 
-   # path('create_profile', views.create_profile, name='create_profile'),
-
-    
-    
    
-
 ]
 
