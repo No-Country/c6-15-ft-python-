@@ -29,7 +29,6 @@ def send_email_help(request):
             content = template.render(context)
 
             send_email(subject,content, email,[email])
-            #messages.success('Tu solicitud a sido enviada correctamente, te estaremos contactando')
             return render(request, 'homepage/index.html')
         
     return render(request, 'help.html')

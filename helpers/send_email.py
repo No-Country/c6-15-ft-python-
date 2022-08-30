@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 from doggy import settings
 import smtplib
 from django.contrib.auth.models import User
-from reservations.models import Reservation
+from reservations.models import Reservations
 from django.shortcuts import render, redirect, get_object_or_404
 
 def send_email(request,email):
