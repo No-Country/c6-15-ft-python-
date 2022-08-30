@@ -5,11 +5,78 @@
 	      
   <img class="img-fluid h-100 w-100" src="{% static 'img/fondo-portada.jpg' %}" alt="">
 
+      {% if user.is_authenticated %}
+    <!--========================================================== -->
+		<!-- Pantalla de Bienvenida-->
+    <!--========================================================== -->
+<div class="container h-100" style="width: 80%;">
 
+     <div class="row mt-4 p-2">
+       <h3> Bienvenido/a <span style="color: #6b8cff;">{{user.username}}</span></h3>
+    </div>
+
+<div class="row mt-2 p-2">
+	    <h5> Ya podés:</h5>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-1 col-sm-12">
+       <img class="p-2" src="{% static 'img/numero_1.png' %}">
+      </div>
+
+<div class="col-md-3 col-sm-12">
+  <div class="row py-2">
+          <a class="nav-link" href="{% url 'create_sitter' user.id %}">
+	<h5>Resgistrarte como cuidador/a</h5>
+	    </a>
+      </div>
+      <div class="row py-2">
+	  <p> Ofrecé servicio de hospedaje para recibir perros según tu disponibilidad y tarifa. Así podrán encontrarte y realizar reservas a través de Doggy.</p>
+      </div>
+</div>
+<div class="col-md-1 col-sm-12">
+  <img class="p-2" src="{% static 'img/numero_2.png' %}">
+
+</div>
+
+<div class="col-md-3 col-sm-12">
+  <div class="row py-2">
+          <a class="nav-link" href="{% url 'pet:register' user.id  %}">
+	<h5>Registrar a tu perro</h5>
+	    </a>
+    </div>
+  <div class="row py-2">
+	<p>Acá podrás registrar a tu mascota, para que los cuidadores puedan conocer sus características al hacer tu reserva y puedan brindarle un servicio de acuerdo a sus necesidades.</p>
+      </div>
+</div>
+
+<div class="col-md-1 col-sm-12">
+	<img class="p-2" src="{% static 'img/numero_3.png' %}">
+</div>
+
+<div class="col-lg-3 col-sm-12">
+
+  <div class="row">
+          <a class="nav-link" href="{% url 'sitter_list' %}">
+	  <h5>Buscar hospedaje para tu perro</h5>
+	    </a>
+      </div>
+    <div class="row py-2">
+	<p>Encontrá al cuidador adecuado para tu perro y paga on-line para contar con la cobertura veterinaria.</p>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+        {% else %}
     <!--========================================================== -->
 		<!-- ¿Cómo funciona? Y ¿ Por Qué Doggy?-->
     <!--========================================================== -->
-
   <div class="container h-100" style="width: 80%;">
 
     <div class="row mt-4 p-2">
@@ -128,6 +195,7 @@
 </div>
 </div>
 
+        {% endif %}
     <!--========================================================== -->
 		<!-- Comentarios de usuarios -->
     <!--========================================================== -->
