@@ -18,7 +18,7 @@ status_reservations = [
 ]
 
 
-class Reservation(models.Model):
+class Reservations(models.Model):
     sitter_publication = models.ForeignKey(Sitter, on_delete=models.CASCADE)
     payment_type = models.IntegerField(null=False, blank=False, choices=payments_types , default=1)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
