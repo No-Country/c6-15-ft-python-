@@ -4,7 +4,7 @@ from sitter.views import sitter
 from .forms import ReservationsForm
 from django.contrib.auth.models import User
 from sitter.models import Sitter
-from reservations.models import Reservations
+from reservations.models import Reservation
 from helpers.send_email import send_email
 
 
@@ -28,7 +28,7 @@ def create_reservation(request, id):
 
 
 
-            list_reservations_id = Reservations.objects.values('id')
+            list_reservations_id = Reservation.objects.values('id')
             lista = []
             for elem in reversed(list_reservations_id):
                 for k, v in elem.items():
@@ -49,7 +49,7 @@ def create_reservation(request, id):
 # vista para mostrar detalles de la reservacion
 def detail_reservation(request, id):
     if request.user.is_authenticated:
-        detail = get_object_or_404(Reservations, id = id)
+        detail = get_object_or_404(Reservation, id = id)
         return render(request, 'reservations_detail.html', {'detail':detail})
 
 

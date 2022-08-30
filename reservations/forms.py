@@ -1,7 +1,7 @@
 from dataclasses import fields
 from datetime import datetime
 from django import forms
-from .models import Reservations
+from .models import Reservation
 from datetime import date
 
 today = date.today()
@@ -12,7 +12,7 @@ class ReservationsForm(forms.ModelForm):
      check_out = forms.DateField(widget=forms.TextInput(attrs={'min': today, 'value': today ,'placeholder': 'Check Out', 'type': 'date' }))
       
      class Meta:
-        model = Reservations
+        model = Reservation
         fields = ['check_in', 'check_out', 'payment_type']
 
 
