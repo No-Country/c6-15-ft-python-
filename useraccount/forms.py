@@ -67,12 +67,12 @@ class RegisterForm(forms.Form):
 
     
 class UsrChangeFrm(UserChangeForm):
-  
+    
     def __init__(self, *args, **kwargs):
         super(UsrChangeFrm, self).__init__(*args, **kwargs)
-
+  
         for fieldname in ['password']:
-            self.fields[fieldname].help_text = None
+            self.fields[fieldname].widget = forms.HiddenInput()
                 
            
   
@@ -85,11 +85,12 @@ class UsrChangeFrm(UserChangeForm):
     
     email = forms.CharField(label='Correo Electrónico',
                              widget=forms.EmailInput(attrs={'class': 'form-control', 'type':'email'}))
+   
     class Meta:
       
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
-    
+        
         
     
 class PwdChangingForm(PasswordChangeForm):
