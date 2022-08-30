@@ -54,13 +54,6 @@ def sitter_details(request, id):
     return render(request, 'sitter_detail.html', {'details':details})
 
 
-
-def sitter(request):
-    query = Sitter.objects.filter(status=1)
-    return render(request, 'sitter_publications.html', {'query':query})
-  
-def is_valid_publication(user_name):
-    return not Sitter.objects.filter(user_id=user_name)
   
 def is_petowner(user_identification):
     return Pet.objects.filter(user_id=user_identification)
