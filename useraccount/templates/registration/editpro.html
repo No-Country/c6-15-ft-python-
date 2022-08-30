@@ -1,8 +1,12 @@
 {% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}
+  Editar cuenta
+{% endblock %}
 
 {% block content %}
 
-{% load static %}
+
 {% if user.is_authenticated %}
 
 <div class="d-flex p-5 justify-content-start w-100 h-100" style="background-image:url({% static 'img/fondo-login.jpg' %}); background-size: cover; background-repeat:no-repeat;"> 

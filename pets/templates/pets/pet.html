@@ -1,24 +1,21 @@
 {% extends "homepage/base.html" %}
+{% block title %}
+  Mascotas
+{% endblock %}
 {% block content %}
 {% load static %}
 
-
 <div class="d-flex p-5 justify-content-start w-100 h-100" style="background-image:url({% static 'img/fondo-login.jpg' %}); background-size: cover; background-repeat:no-repeat;"> 
-    <!--<img class="img-fluid h-100 w-100" src="{% static 'img/fondo-login.jpg' %}" alt="" style="position: relative;"> -->
-    <div class="py-5">
+  <div class="py-5">
     <form method="post" class="bg-light row p-5 col-lg-8 border boder-primary rounded shadow-lg mt-5 ms-md-5">
-     <h3 class="row justify-content-center p-lg-4 p-sm-2">Registrá tu perro en Doggy</h3>
+      <h3 class="row justify-content-center p-lg-4 p-sm-2">Registrá tu perro en Doggy</h3>
       {% csrf_token %}
-    {% csrf_token %}
-    
-        <div>
-            {{form.as_p}}
-            {% comment %} {{form.petowner_id.user.username} {% endcomment %}
-        </div>
-    
+      <div>
+        {{form.as_p}}
+      </div>
       <button type="submit" class='row-1 btn btn-primary p-2 '>Crear</button>
-        <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
+      <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
     </form>
-    </div> 
+  </div> 
 </div>    
 {% endblock  %}
