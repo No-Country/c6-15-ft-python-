@@ -1,8 +1,12 @@
 {% extends 'homepage/base.html' %}
+{% load static %}
+{% block title %}
+  Editar cuenta
+{% endblock %}
 
 {% block content %}
 
-{% load static %}
+
 {% if user.is_authenticated %}
 
 <div class="d-flex items-aling-center justify-content-center pt-5">

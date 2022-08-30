@@ -14,7 +14,11 @@ urlpatterns = [
     path('editpro', UserEditView.as_view(), name='editpro'),
 
     path('password', PwdChangeView.as_view(template_name='registration/password.html'), name='password'),
+<<<<<<< HEAD
    # path('password_success', views.password_success, name='password_success'),
+=======
+    #path('password_success', views.password_success, name='password_success'),
+>>>>>>> a03a009845ce17178317b58e904f4a09e63bdff1
     path('editprofile/<int:pk>/', UserEditExtendedView.as_view(), name='editprofile'), 
    # path('create_profile', views.create_profile, name='create_profile'),
 
