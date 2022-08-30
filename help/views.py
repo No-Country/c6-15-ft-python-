@@ -26,7 +26,7 @@ def send_email_help(request):
             content = template.render(context)
 
             send_email(subject,content, email,[email])
-            return render(request, 'help.html')
+            return render(request, 'homepage/index.html')
         
     return render(request, 'help.html')
     
