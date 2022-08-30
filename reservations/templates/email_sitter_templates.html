@@ -146,7 +146,7 @@
 <td class="pad" style="padding-bottom:5px;padding-left:10px;padding-right:10px;padding-top:10px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #ffffff; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><span style="font-size:42px;"><span style="text-align:left;background-color:transparent;font-size:42px;"><strong>¡{{user.username}} </strong></span>HA HECHO UNA RESERVACION DE TUS SERVICIOS</strong></span><strong style="font-size:42px;"> </strong></span></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><span style="font-size:42px;"><span style="text-align:left;background-color:transparent;font-size:42px;"><strong>{{user.username}} </strong></span>HA HECHO UNA RESERVACION DE TUS SERVICIOS</strong></span><strong style="font-size:42px;"> </strong></span></p>
 <p style="margin: 0; font-size: 14px; font-size: 14px; font-size: 14px; font-size: 14px; font-weight: normal; color: #ffffff; text-align: center; padding: 40px">Contactalo aqui {{user.email}}</p>
 </div>
 </div>
@@ -433,7 +433,7 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>MONDAY</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><strong>Fecha de ingreso: {{detalle.status}}</strong></p>
 </div>
 </div>
 </td>
@@ -446,7 +446,7 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #de6b2b; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>8 AM - 5 PM</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><strong>{{detalle.check_out}}</strong></p>
 </div>
 </div>
 </td>
@@ -473,7 +473,7 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>TUESDAY</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><strong>Fecha de salida</strong></p>
 </div>
 </div>
 </td>
@@ -486,7 +486,7 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #de6b2b; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>8 AM - 5 PM</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><strong>{{detalle.check_out}}</strong></p>
 </div>
 </div>
 </td>
@@ -513,7 +513,7 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>WEDNESDAY</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><strong>Tipo de pago</strong></p>
 </div>
 </div>
 </td>
@@ -526,7 +526,12 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #de6b2b; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>8 AM - 5 PM</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;">
+	<strong>
+	
+	{{pay_type}}
+</strong>
+</p>
 </div>
 </div>
 </td>
@@ -540,46 +545,7 @@
 </tr>
 </tbody>
 </table>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-13" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tbody>
-<tr>
-<td>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f7f7f5; color: #000000; width: 640px;" width="640">
-<tbody>
-<tr>
-<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; border-bottom: 1px dotted #CAC9C6; vertical-align: top; border-top: 0px; border-right: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
-<div style="font-family: sans-serif">
-<div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>THURSDAY</strong></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</td>
-<td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; border-bottom: 1px dotted #CAC9C6; vertical-align: top; border-top: 0px; border-right: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
-<div style="font-family: sans-serif">
-<div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #de6b2b; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>8 AM - 5 PM</strong></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
+
 <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-14" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tbody>
 <tr>
@@ -593,7 +559,7 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>FRIDAY</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><strong>Nombre de quien reserva</strong></p>
 </div>
 </div>
 </td>
@@ -606,7 +572,7 @@
 <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
 <div style="font-family: sans-serif">
 <div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #de6b2b; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>8 AM - 5 PM</strong></p>
+<p style="margin: 0; font-size: 14px; text-align: center;"><strong>{{user.first_name}}&nbsp;{{user.last_name}}</strong></p></strong></p>
 </div>
 </div>
 </td>
@@ -620,112 +586,8 @@
 </tr>
 </tbody>
 </table>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-15" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tbody>
-<tr>
-<td>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f7f7f5; color: #000000; width: 640px;" width="640">
-<tbody>
-<tr>
-<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; border-bottom: 1px dotted #CAC9C6; vertical-align: top; border-top: 0px; border-right: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
-<div style="font-family: sans-serif">
-<div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>SATURDAY</strong></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</td>
-<td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; border-bottom: 1px dotted #CAC9C6; vertical-align: top; border-top: 0px; border-right: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
-<div style="font-family: sans-serif">
-<div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #de6b2b; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>10 AM - 2 PM</strong></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-16" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tbody>
-<tr>
-<td>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f7f7f5; color: #000000; width: 640px;" width="640">
-<tbody>
-<tr>
-<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; border-bottom: 1px dotted #CAC9C6; vertical-align: top; border-top: 0px; border-right: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
-<div style="font-family: sans-serif">
-<div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>SUNDAY</strong></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</td>
-<td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; border-bottom: 1px dotted #CAC9C6; vertical-align: top; border-top: 0px; border-right: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:15px;">
-<div style="font-family: sans-serif">
-<div class="txtTinyMce-wrapper" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #de6b2b; line-height: 1.2; font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;">
-<p style="margin: 0; font-size: 14px; text-align: center;"><strong>CLOSED</strong></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-17" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tbody>
-<tr>
-<td>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f7f7f5; color: #000000; width: 640px;" width="640">
-<tbody>
-<tr>
-<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-<table border="0" cellpadding="10" cellspacing="0" class="button_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad">
-<div align="center" class="alignment">
-<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://www.example.com/" style="height:51px;width:149px;v-text-anchor:middle;" arcsize="8%" stroke="false" fillcolor="#de6b2b"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="http://www.example.com/" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#de6b2b;border-radius:4px;width:auto;border-top:1px solid #de6b2b;font-weight:400;border-right:1px solid #de6b2b;border-bottom:1px solid #de6b2b;border-left:1px solid #de6b2b;padding-top:10px;padding-bottom:10px;font-family:Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:35px;padding-right:35px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="word-break: break-word; line-height: 32px;">Contact Us</span></span></a>
-<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
-</div>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
+
+
 <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-18" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tbody>
 <tr>
