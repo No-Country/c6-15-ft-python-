@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
+from django.contrib import messages
 
 def send_email(subject, content, email ,*args):
    
@@ -17,15 +18,18 @@ def send_email_help(request):
             subject = f'Nueva solicitud de ayuda desde Doggy del usuario {user}'
             text_content = request.POST.get('message')
             email='apdoggy27@gmail.com'
+            user_email = user.email
             context = {
                 'user':user,
                 'text_content':text_content,
-                'email':email
+                'email':email,
+                'user_email':user_email
             }
             template = get_template('mail.html')
             content = template.render(context)
 
             send_email(subject,content, email,[email])
+            #messages.success('Tu solicitud a sido enviada correctamente, te estaremos contactando')
             return render(request, 'homepage/index.html')
         
     return render(request, 'help.html')
