@@ -57,6 +57,7 @@ def sitter_details(request, id):
         return render(request, 'sitter_detail.html', {'details':details})
     else:
          return render(request, 'homepage/index.html')
+
   
 def is_petowner(user_identification):
     return Pet.objects.filter(user_id=user_identification)
