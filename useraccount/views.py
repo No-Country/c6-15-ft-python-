@@ -91,5 +91,5 @@ class PwdChangeView(PasswordChangeView):
 def pwdsuccess(request):
     messages.success(request,'Datos cambiados correctamente')  
     return redirect('home')
-    
+   
 

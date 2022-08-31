@@ -6,7 +6,7 @@
 
   
 <div class="container mt-5">
-<div class="card mb-3" style="max-width: 540px;">
+  <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{context.picture_site.url}}" class="img-fluid rounded-start img-thumbnail" width="300" height="300" alt  ="...">
@@ -16,11 +16,7 @@
           <h5 class="card-title">{{context.user_id}} </h5>
           <p class="card-text">{{context.descripcion}}</p>
           <p class="card-text"><small class="text-muted"><i class="fa-solid fa-money-bill-1-wave me-2"></i>{{context.price}} </small></p>
-
-          
-      <a class="btn btn-warning" href="{% url 'sitter_details' context.id %}"> Details</a>
-     
-          
+          <a class="btn btn-warning" href="{% url 'sitter_details' context.id %}"> Details</a> 
           <a class="btn btn-success" href="{% url 'create_reservation' context.id %}" >Reservar</a>
           <a class="btn btn-danger" href="{% url 'home' %}">Cancelar</a>
         </div>
@@ -31,7 +27,7 @@
 
 
     
-    <script src="https://kit.fontawesome.com/ef04847ec0.js" crossorigin="anonymous"></script>
-    {% endfor %} 
-    {% endblock content %}
+<script src="https://kit.fontawesome.com/ef04847ec0.js" crossorigin="anonymous"></script>
+{% endfor %} 
+{% endblock content %}
 
