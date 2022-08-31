@@ -42,11 +42,10 @@ def create_sitter(request,user):
 def sitter(request):
     query = Sitter.objects.filter(status=1)
     return render(request, 'sitter_publications.html', {'query':query})
-  
+
 def is_valid_publication(user_name):
     return not Sitter.objects.filter(user_id=user_name)
   
-    
 
 def sitter_details(request, id):
     if request.user.is_authenticated:
@@ -55,9 +54,7 @@ def sitter_details(request, id):
 
 
 
-def sitter(request):
-    query = Sitter.objects.filter(status=1)
-    return render(request, 'sitter_publications.html', {'query':query})
+
   
 def is_valid_publication(user_name):
     return not Sitter.objects.filter(user_id=user_name)
