@@ -16,7 +16,7 @@ def pets_register(request):
     return render(request, 'pets/pet.html')
 
 def createPet(request,user):
-    if user.is_authenticated():
+    if request.user.is_authenticated():
         if request.method == 'POST':
 
             form = FormularioPets(request.POST)
