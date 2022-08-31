@@ -40,9 +40,12 @@ def create_sitter(request,user):
 
 
 def sitter(request):
-    query = Sitter.objects.filter(status=1)
-    return render(request, 'sitter_publications.html', {'query':query})
-
+    if request.user.is_authenticated:
+        query = Sitter.objects.filter(status=1)
+        return render(request, 'sitter_publications.html', {'query':query})
+    else:
+         return render(request, 'homepage/index.html')
+  
 def is_valid_publication(user_name):
     return not Sitter.objects.filter(user_id=user_name)
   
@@ -50,14 +53,10 @@ def is_valid_publication(user_name):
 def sitter_details(request, id):
     if request.user.is_authenticated:
         details = get_object_or_404(Sitter, id = id) 
-    return render(request, 'sitter_detail.html', {'details':details})
+        return render(request, 'sitter_detail.html', {'details':details})
+    else:
+         return render(request, 'homepage/index.html')
 
-
-
-
-  
-def is_valid_publication(user_name):
-    return not Sitter.objects.filter(user_id=user_name)
   
 def is_petowner(user_identification):
     return Pet.objects.filter(user_id=user_identification)

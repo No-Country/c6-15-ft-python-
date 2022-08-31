@@ -1,4 +1,5 @@
 {% load static %}
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="mainNav">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home' %}"
@@ -9,8 +10,17 @@
         <a class="nav-link" href="#services"><i class="fa-solid fa-user me-2"></i>{{user.username}}</a>
       </div>
      {% endif %}
-    <button
+ <!--   <button
     class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarResponsive"
+    aria-controls="navbarResponsive"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    >-->
+     <button
+    class="navbar-toggler cerrar"
     type="button"
     data-bs-toggle="collapse"
     data-bs-target="#navbarResponsive"
@@ -24,39 +34,45 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto py-4 py-lg-0">
         {% if user.is_authenticated %}
-        
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'sitter_list' %}">Buscar cuidadores</a>
-            </li>
+         
           
           {% if 'Cuidador' in role %}
+	     <li class="nav-item">
+	       <a class="nav-link" href="{% url 'sitter_list' %}">Ver otros cuidadores</a>
+            </li>
+        
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
+	      <a class="nav-link disabled" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="{% url 'pet:register' user.id  %}"
-              >Registrar canino</a>
+              <a class="nav-link disabled" href="{% url 'pet:register' user.id  %}">Registrar canino</a>
             </li> 
           {% endif %}  
           
           {% if 'Dueño' in role %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pet:register' user.id  %}"
-            >Registrar canino</a>
-          </li> 
-          <li class="nav-item">
+	       <li class="nav-item">
+	       <a class="nav-link" href="{% url 'sitter_list' %}">Buscar cuidadores</a>
+            </li>
+        
+	  <li class="nav-item">
               <a class="nav-link disabled" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
           </li>
-          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link disabled" href="{% url 'pet:register' user.id  %}">Registrar canino</a>
+          </li> 
+	  {% endif %}
          
           {% if 'Invitado' in role %}
+	       <li class="nav-item">
+	       <a class="nav-link" href="{% url 'sitter_list' %}">Buscar cuidadores</a>
+            </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'pet:register' user.id  %}"
             >Registrar canino</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a>
           </li>
           {% endif %}  
 
@@ -91,10 +107,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Buscar cuidadores</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Convertirse en cuidador</a>
-        </li>
-        <li class="nav-item">
+       <li class="nav-item">
           <a class="nav-link" href="{% url 'useraccount:register' %}">Registrarme</a>
         </li>
         <li class="nav-item">
@@ -107,6 +120,18 @@
       </ul>
     </div>
   </div>
-  
+ 
+<script>
+  $(document).click(function (event) {
+
+  /// If *navbar-collapse* is not among targets of event
+  if (!$(event.target).is('.navbar-collapse')) {
+
+    /// Collapse every *navbar-collapse*
+    $('.navbar-collapse').collapse('hide');
+
+  }
+}); 
+</script>
   <script src="https://kit.fontawesome.com/ef04847ec0.js" crossorigin="anonymous"></script>
 </nav>
