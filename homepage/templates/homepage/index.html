@@ -13,9 +13,9 @@
     <!--========================================================== -->
 		<!-- Pantalla de Bienvenida-->
     <!--========================================================== -->
-<div class="container h-100" style="width: 80%;">
+<div class="container h-100 mb-5" style="width: 80%;">
 
-     <div class="row mt-4 p-2">
+     <div class="row mt-4">
        <h3> Bienvenido/a <span style="color: #6b8cff;">{{user.username}}</span></h3>
     </div>
 
@@ -29,7 +29,7 @@
       </div>
 
 <div class="col-md-3 col-sm-12">
-  <div class="row py-2">
+  <div class="row p-2">
           <a class="nav-link" href="{% url 'create_sitter' user.id %}">
 	<h5>Resgistrarte como cuidador/a</h5>
 	    </a>
@@ -44,7 +44,7 @@
 </div>
 
 <div class="col-md-3 col-sm-12">
-  <div class="row py-2">
+  <div class="row p-2">
           <a class="nav-link" href="{% url 'pet:register' user.id  %}">
 	<h5>Registrar a tu perro</h5>
 	    </a>
@@ -60,7 +60,7 @@
 
 <div class="col-lg-3 col-sm-12">
 
-  <div class="row">
+  <div class="row p-2">
           <a class="nav-link" href="{% url 'sitter_list' %}">
 	  <h5>Buscar hospedaje para tu perro</h5>
 	    </a>
