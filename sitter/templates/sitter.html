@@ -1,16 +1,23 @@
 {% extends "homepage/base.html" %}
+{% block title %}
+  Convertirse en cuidador
+{% endblock %}
 {% block content %}
-<div class="d-flex items-aling-center justify-content-center pt-5">
-    <form class="row-2 p-5 m-5 border border-dark rounded" action="" method="post" enctype="multipart/form-data">
-        
-        {% csrf_token %}
+{% load static %}
+
+<div class="d-flex p-5 justify-content-start w-100 h-100" style="background-image:url({% static 'img/fondo-login.jpg' %}); background-size: cover; background-repeat:no-repeat;"> 
+  <div class="py-5">
+     <form method="post" class="bg-light row p-2 col-lg-5 border border-primary rounded shadow-lg mt-5 ms-md-5" enctype="multipart/form-data">
+       <h3 class="row justify-content-center p-lg-3 p-sm-2">Registrate como cuidador</h3>
+          {% csrf_token %}
+      <div class="form-group p-2">
         {{form.as_p}}
         {{ form.non_field_errors }}
-        <div class="d-flex items-aling-center justify-content-center pt-2">
-            <input type="submit" class="btn btn-success" value="Registrarme como cuidador" />
-        </div>
-    </form>
-
+      </div>
+        <button type="submit"  class="btn row-1 btn-primary mt-2">Aceptar</button>
+        <a class='row-2 btn btn-danger p-2 mt-2' href={% url 'home' %}>Cancelar</a>
+      </form>
+  </div>
 </div>
 
 {% endblock %}
