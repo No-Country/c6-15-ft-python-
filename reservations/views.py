@@ -54,8 +54,3 @@ def detail_reservation(request, id):
         return render(request, 'reservations_detail.html', {'detail':detail})
 
 
-def is_owner(user_identification):
-    return Pet.objects.filter(user_id=user_identification)
-                
-def is_sitter(user_identification):
-    return Sitter.objects.filter(user_id=user_identification)
