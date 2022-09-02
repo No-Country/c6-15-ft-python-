@@ -11,10 +11,10 @@ class FormularioPets(forms.ModelForm):
         exclude = ['petowner_id']
         
         labels = {
-            'name': 'Nombre del Cachorro',
-            'age': 'Edad del cachorro',
-            'size': 'Talla del Cachorro',
-            'condition': 'Condiciones Especiales del Cachorro',
+            'name': 'Nombre del perro',
+            'age': 'Edad del perro',
+            'size': 'Talla del perro',
+            'condition': 'Condiciones Especiales',
             'accesories': 'Accesorios',
         }
 

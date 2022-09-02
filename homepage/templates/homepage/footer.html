@@ -10,10 +10,42 @@
                     <h5>Doggy</h5>
                   </div>
                 <ul style="list-style: none; margin:0; padding: 0;">
-                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Inicio</a></li>
-                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Convertirse en cuidador</a></li>
-                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Ayuda</a></li>
-                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="#">Registrarme</a></li>
+                  <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'home' %}">Inicio</a></li>
+	         <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'send_email_help' %}">Ayuda</a></li>
+
+        {% if user.is_authenticated %}
+         
+          {% if 'Cuidador' in role %}
+	           <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'sitter_list' %}">Ver otros cuidadores</a></li>
+	                   
+
+          {% endif %}  
+          
+          {% if 'Dueño' in role %}
+	
+	           <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'sitter_list' %}">Buscar cuidadores</a></li>
+	  {% endif %}
+         
+          {% if 'Invitado' in role %}
+          
+	           <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'sitter_list' %}">Buscar cuidadores</a></li>
+	           <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'create_sitter' user.id %}">Convertirse en cuidador</a></li>
+	           <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'pet:register' user.id  %}">Registrar canino</a></li>
+
+	  {% endif %}  
+
+        {% else %}
+	  
+	<li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'sitter_list' %}">Buscar cuidadores</a></li>
+	
+	<li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'useraccount:login' %}">Iniciar sesións</a></li>
+	
+      
+             <li class="py-2"><a style="text-decoration:none; color: aliceblue;" href="{% url 'useraccount:register' %}">Registrarme</a></li>
+         
+        
+
+	{% endif %}
                 </ul>
                 </div>
               </div>
@@ -26,13 +58,13 @@
                   <!-- redes sociales -->
                   <div class="row">
                     <div class="col-4">
-                      <a href="#"><img src="{% static 'img/icon-instagram.png' %}"> </a>
+                      <a href="https://www.instagram.com/doggyoficial1820/"><img src="{% static 'img/icon-instagram.png' %}"> </a>
                    </div>
                     <div class="col-4">
                       <a href="#"><img src="{% static 'img/icon-facebook.png' %}"> </a>
                     </div>
                     <div class="col-4">
-                      <a href="#"><img src="{% static 'img/icon-twitter.png' %}"> </a>
+                      <a href="https://twitter.com/AppDoggy"><img src="{% static 'img/icon-twitter.png' %}"> </a>
                     </div>
                 </div>
               </div>

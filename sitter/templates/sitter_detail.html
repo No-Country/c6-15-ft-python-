@@ -1,20 +1,33 @@
 
 {% extends "homepage/base.html" %}
 {% load static %} 
-
+{% block title %}
+  Detalles de la publicación
+{% endblock %}
 {% block content %}
   
 
 
+<div class="d-flex p-5 justify-content-start w-100 h-100" style="background-image:url({% static 'img/fondo-mosaico.webp' %}); background-size:auto; background-repeat:repeat;"> 
     
-      <div class="container-fluid mt-5 card  ">
-        <div class="card-body card ">
-          <h5 class="card-title bg-secondary ">Detalle de la publicacion</h5>
+  <!--<div class="container-fluid mt-5 card  "> -->
+<div class="container mt-5">
+    <div class="card shadow bg-light rounded">
+          <h5 class="p-3 mb-3 card-title bg-dark text-white text-center">Detalles de la publicación</h5>
+
+  <div class="container mx-3">
+          <p class="card-title">Descripción del cuidador:</p>
+	  <div class="card border-dark mb-3 p-2" style="max-width: 80%;">
           <p class="card-text">{{details.descripcion}}</p>
-          <p class="card-text">Precio del servicio ${{ details.price }}</p>
-          <p class="card-text">Nombre del cuidador: &nbsp; {{details.user_id}}</p>
+	  </div>
+	  <p class="card-text">Nombre del cuidador: <b>&nbsp; {{details.user_id}}</b></p>
+	  <p class="card-text">Precio del servicio: <b>${{ details.price }}</b></p>
           <img src="{{details.picture_site.url}}" class=" img-fluid rounded-start img-thumbnail" width="600" height="300" alt="...">
         </div>
+          <a class="btn btn-primary" href="{% url 'sitter_list' %}">Regresar</a>
+          
+      </div>
+      </div>
       </div>
 
 {% endblock %}

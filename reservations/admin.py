@@ -1,5 +1,5 @@
 from django.contrib import admin
-from reservations.models import Reservations
+from .models import Reservations
 # Register your models here.
 
 class reservationsAdmin(admin.ModelAdmin):

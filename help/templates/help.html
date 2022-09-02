@@ -1,0 +1,21 @@
+{% extends "homepage/base.html" %}
+{% load static %}
+{% block content %}
+<div class="d-flex p-5 justify-content-start w-100 h-100" style="background-image:url({% static 'img/fondo-login.jpg' %}); background-size: cover; background-repeat:no-repeat;"> 
+  <div class="py-5">
+     <form method="post" class="row g-0 bg-light p-5 col-lg-6 border border-secondary rounded shadow mt-5 ms-md-5">
+      {% csrf_token %}
+  
+      <h3>Contactanos</h3>
+      
+        <div class="form-group">
+      <label for="Mensaje">Mensaje</label>
+      <textarea class="mt-2 form-control" name="message" id="" cols="60" rows="12"></textarea>
+        </div>
+      <button class="btn btn-primary mt-4">Enviar</button>
+      
+    </form>
+  </div>
+  </div>
+
+{% endblock %}
