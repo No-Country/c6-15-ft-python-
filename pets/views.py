@@ -27,7 +27,8 @@ def createPet(request,user):
                 if not is_sitter(formulario.user_id):
                     if is_valid_publication(user):
                         formulario.save()
-                        messages.success(request,'En hora buena!, registraste a doggy correctamente.')  
+                        pet_name = request.POST.get('name')
+                        messages.success(request,'En hora buena!, registraste a %s correctamente.' % pet_name.upper())  
                         return redirect('home')
                     else:
                         messages.error(request,'Acción no permitida: Anteriormente registraste una mascota')  
