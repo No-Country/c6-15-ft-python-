@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from sitter.models import Sitter
 from reservations.models import Reservations
 from helpers.send_email import send_email
+from pets.models import Pet
 
 
 # Create your views here.
@@ -53,5 +54,8 @@ def detail_reservation(request, id):
         return render(request, 'reservations_detail.html', {'detail':detail})
 
 
+def is_owner(user_identification):
+    return Pet.objects.filter(user_id=user_identification)
                 
-
+def is_sitter(user_identification):
+    return Sitter.objects.filter(user_id=user_identification)
