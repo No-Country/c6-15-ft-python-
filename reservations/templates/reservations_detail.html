@@ -5,7 +5,7 @@
 <div class="container-fluid mt-5  ">
     <div class="text-center">
         <br>
-        <h2>Detalle de la reservacion</h2>
+        <h2>Detalles de la reserva</h2>
         <p><label for="check_in">Fecha de ingreso: </label>
             {{detail.check_in}}</p>
 
@@ -26,10 +26,10 @@
         <p>
             {% if detail.status is 2 %}
             <label for="status">Status: </label>
-            <span class="text-success"> aprovado</span>
+            <span class="text-success"> Aprobado</span>
             {% else %}
-            <label for="status">Status: </label>
-            <span class="text-danger">cancelado</span>
+	    <label for="status">Status de la reserva: </label>
+            <span class="text-danger">Cancelado</span>
             {% endif %}
         </p>
 

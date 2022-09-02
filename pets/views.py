@@ -16,6 +16,8 @@ def pets_register(request):
     return render(request, 'pets/pet.html')
 
 def createPet(request,user):
+    
+    
     if request.user.is_authenticated:
         if request.method == 'POST':
 
@@ -28,7 +30,8 @@ def createPet(request,user):
                     if is_valid_publication(user):
                         formulario.save()
                         pet_name = request.POST.get('name')
-                        messages.success(request,'En hora buena!, registraste a %s correctamente.' % pet_name.upper())  
+                        #messages.success(request,'Enhorabuena! Registraste a tu mascota correctamente.')  
+                        messages.success(request,'Enhorabuena! Registraste a %s correctamente.' % pet_name.upper())  
                         return redirect('home')
                     else:
                         messages.error(request,'Acción no permitida: Anteriormente registraste una mascota')  

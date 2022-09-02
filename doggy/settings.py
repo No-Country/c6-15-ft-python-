@@ -27,7 +27,6 @@ SECRET_KEY = 'django-insecure-0u^763oms^o_ygnz%p#+5=#-&y$^&ps8yda0h#241i%s81qk7t
 
 
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -56,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'doggy.urls'
@@ -146,9 +146,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
