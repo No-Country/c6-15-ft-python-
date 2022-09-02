@@ -39,3 +39,5 @@ Como cuidador, me interesa conocer las características de la mascota (salud, co
 - Ximena Flores Berejnoi (Diseño UX/UI)
 - Florencia Carugno (QA-tester)
 - Armando Buendía (Full-Stack)
+- Angelo Montero (QA-tester)
+

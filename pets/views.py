@@ -15,34 +15,36 @@ def pets(request):
 def pets_register(request):
     return render(request, 'pets/pet.html')
 
-
-
 def createPet(request,user):
     
     
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        if request.method == 'POST':
 
-        form = FormularioPets(request.POST)
-        if form.is_valid():
-            formulario = form.save(commit=False)
-            user = User.objects.get(username = request.user.username)
-            formulario.user_id = user
-            if not is_sitter(formulario.user_id):
-                if is_valid_publication(user):
-                    formulario.save()
-                    messages.success(request,'Enhorabuena! Te registraste a doggy correctamente.')  
-                    return redirect('home')
+            form = FormularioPets(request.POST)
+            if form.is_valid():
+                formulario = form.save(commit=False)
+                user = User.objects.get(username = request.user.username)
+                formulario.user_id = user
+                if not is_sitter(formulario.user_id):
+                    if is_valid_publication(user):
+                        formulario.save()
+                        messages.success(request,'Enhorabuena! Registraste a %s correctamente.' % pet_name.upper())  
+                        return redirect('home')
+                    else:
+                        messages.error(request,'Acción no permitida: Anteriormente registraste una mascota')  
+                        return redirect('home')  
                 else:
-                    messages.error(request,'Acción no permitida: Anteriormente registraste una mascota')  
-                    return redirect('home')  
-            else:
-                messages.error(request,'Acción no permitida: Anteriormente te registraste como cuidador')  
-                return redirect('home')
-                
+                    messages.error(request,'Acción no permitida: Anteriormente te registraste como cuidador')  
+                    return redirect('home')
+                    
+        else:
+            
+            form = FormularioPets()
+        return render(request, 'pets/pet.html', {'form':form})                
     else:
-        
-        form = FormularioPets()
-    return render(request, 'pets/pet.html', {'form':form})                
+        return render(request, 'homepage/index.html')
+
 
 def is_sitter(user_identification):
     return Sitter.objects.filter(user_id=user_identification)
