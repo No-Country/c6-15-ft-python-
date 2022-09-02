@@ -1,12 +1,13 @@
 {% extends "homepage/base.html" %}
-
+{% load static %} 
 {% block content %}
 
-<div class="container d-flex align-items-center justify-content-center p-3">
-    <form action="" class="row col-md-3 boder-primary bg-white p-5" method="post">
+<!-- <div class="container d-flex align-items-center justify-content-center p-3"> -->
+<div class="d-flex p-5 justify-content-center w-100 h-100" style="background-image:url({% static 'img/fondo-mosaico.webp' %}); background-size:auto; background-repeat:repeat;"> 
+     <form method="post" class="row g-0 bg-light p-5 col-lg-5 border border-secondary rounded shadow mt-5 ms-md-5">
       {% csrf_token %}
   
-      <h3>Reservar</h3>
+      <h3 class="row p-lg-3 justify-content-center">Reservar</h3>
       <label for="check_in">Fecha de entrada</label>
       {{ form.check_in }}
       <label for="check_out">Fecha de salida</label>
@@ -15,8 +16,9 @@
       {{ form.payment_type }}
 
   
-      <button type="submit" class="btn btn-success mt-2" >Reservar</button>
+      <button type="submit" class="btn btn-success mt-2" >Enviar</button>
     </form>
+  </div>
   </div>
 
 {% endblock %}
