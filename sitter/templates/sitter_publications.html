@@ -10,7 +10,7 @@
 {% for context in query %}
   
 <div class="container mt-5 ">
-  <a href="{% url 'sitter_details' context.id  %} " style="text-decoration : none ; color: #000000;";> 
+  <!-- <a href="{% url 'sitter_details' context.id  %} " style="text-decoration : none ; color: #000000;";>  -->
   <div class="card mb-3" style="max-width: 540px; ">
     <div class="row g-0">
       <div class="col-md-4">
@@ -21,7 +21,7 @@
           <h5 class="card-title">{{context.user_id}} </h5>
           <p class="card-text">{{context.descripcion}}</p>
           <p class="card-text"><small class="text-muted"><i class="fa-solid fa-money-bill-1-wave me-2"></i>{{context.price}} </small></p>
-          <!-- <a class="btn btn-warning" href="{% url 'sitter_details' context.id  %}"> Details</a> -->
+          <a class="btn btn-warning" href="{% url 'sitter_details' context.id  %}"> Details</a> 
           <!-- <a class="btn btn-outline-primary" href="{% url 'create_reservation' context.id %}"  style="background-color:#98afff ;">Reservar</a> -->
           <div class="d-grid gap-2 col-6 mx-auto">
 
