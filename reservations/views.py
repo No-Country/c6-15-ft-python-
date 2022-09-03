@@ -28,15 +28,13 @@ def create_reservation(request, id):
             ar = Pet.objects.filter(user_id=request.user.id).exists()
               #owner email
 
-            print(ar)
+            
             
             if form.save() and ar:
                 user_email = request.user.email
                 email_id = id.user_id.email #EMAIL DEL SITTER
                 send_email(request,email_id)
                 send_email_owner(request,user_email)
-                print(user_email)
-                print(email_id)
                 messages.success(request,'Reservacion exitosa')
             else:
                 messages.error(request,'Acción no permitida: para reservar primero debes registrar una mascota')  

@@ -23,7 +23,8 @@ load_dotenv(dotenv_path=env_path)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = 'django-insecure-0u^763oms^o_ygnz%p#+5=#-&y$^&ps8yda0h#241i%s81qk7t'
+
+SECRET_KEY = os.getenv('S_KEY')
 
 
 DEBUG = True
@@ -149,7 +150,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'apdoggy27@gmail.com'
+EMAIL_HOST_USER = os.getenv('USER_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('USER_MAIL_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
